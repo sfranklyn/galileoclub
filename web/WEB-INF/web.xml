@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>
+            /WEB-INF/roles-config.xml,
+            /WEB-INF/urls_roles-config.xml,
+            /WEB-INF/users-config.xml,
+            /WEB-INF/users_roles-config.xml,
+            /WEB-INF/pccs-config.xml,
+            /WEB-INF/pnrcounts-config.xml,
+            /WEB-INF/claims-config.xml,
+            /WEB-INF/configs-config.xml,
+            /WEB-INF/news-config.xml,
+            /WEB-INF/points-config.xml
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.verifyObjects</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.validateXml</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+    <context-param>
+        <description>When set to true(by default it is),
+        Chartlet servlet is used to generate the chart, otherwise
+        a phaselistener is used
+        </description>
+        <param-name>net.sf.jsfcomp.chartcreator.USE_CHARTLET</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>shutdown-on-unload</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>start-scheduler-on-load</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <filter>
+        <filter-name>Authentication</filter-name>
+        <filter-class>galileoclub.filter.Authentication</filter-class>
+    </filter>
+    <filter>
+        <filter-name>Authorization</filter-name>
+        <filter-class>galileoclub.filter.Authorization</filter-class>
+    </filter>
+    <filter>
+        <display-name>RichFaces Filter</display-name>
+        <filter-name>richfaces</filter-name>
+        <filter-class>org.ajax4jsf.Filter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>richfaces</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Authentication</filter-name>
+        <url-pattern>/faces/secure/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Authorization</filter-name>
+        <url-pattern>/faces/secure/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <description>QuartzInitializerListener</description>
+        <listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>galileoclub.listener.ContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/index.xhtml</welcome-file>
+    </welcome-file-list>
+</web-app>

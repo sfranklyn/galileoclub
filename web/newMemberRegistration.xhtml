@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Galileo Club" />
+	<meta name="keywords" content="galileo,indonesia,club" />
+	<meta name="author" content="Samuel Franklyn" />
+	<link rel="stylesheet" type="text/css" href="default.css" media="screen"/>
+	<title>Galileo Club</title>
+</head>
+<body>
+    <center>
+        <div style="width:960px;">
+            <div class="all">
+                <div class="log">
+                    <a href="index.xhtml"><img src="../images/material/logo02.jpg" style="float:left;" /></a>
+                    <div class="mn_top02">
+                        <ul>
+                            <form jsfc="h:form" id="chooseLanguage">
+                            <li class="no-marg">#{msgs.language} : &#160; &#160;</li>
+                            <li class="no-marg" style="padding-right:10px;"><input style="vertical-align:middle;" jsfc="h:commandButton" id="english" value="English" type="image" image="../images/flag_eng.jpg" action="#{visit.chooseEnglish}" /> English</li>
+                            <li class="no-marg"><input style="vertical-align:middle;" jsfc="h:commandButton" id="indonesia" value="Indonesia" type="image" image="../images/flag_ind.jpg" action="#{visit.chooseIndonesia}" /> Indonesia</li>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+                <div id="header-02"></div>
+                <div class="body_container">
+                    <!-- content -->
+                    <ui:composition template="/template.xhtml">
+                        <ui:define name="body">
+					
+									<h2>#{msgs.new_member_registration}</h2>
+									<form id="newMember" jsfc="h:form">
+										<table align="center" cellpadding="2" width="95%" cellspacing="1" class="body material" style="float:left;">
+											<tr>
+												<td colspan="2"><p><img src="../images/material/h_separ.jpg" /></p></td>
+											</tr>
+											<tr>
+												<td colspan="2"><span class="title">#{msgs.login_data}</span></td>
+											</tr>
+											<tr>
+												<td style="padding-top:0.5em;">#{msgs.user_name}</td>
+												<td style="padding-top:0.5em;"><input jsfc="h:inputText" id="userName" size="20" maxlength="15" value="#{users.users.userName}" /></td>
+											</tr>
+											<tr>
+												<td>#{msgs.user_password}</td>
+												<td><input jsfc="h:inputSecret" id="userPassword1" size="20" maxlength="15" value="#{users.userPassword1}" />
+												(5-15 karakter)</td>
+											</tr>
+											<tr>
+												<td width="145">#{msgs.reconfirm_user_password}<br/><br/></td>
+												<td><input jsfc="h:inputSecret" id="userPassword2" size="20" maxlength="15" value="#{users.userPassword2}"/><br/><br/>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2"><p><img src="../images/material/h_separ.jpg" /></p></td>
+											</tr>											
+											<tr>
+												<td colspan="2"><span class="title">#{msgs.personal_data}</span></td>
+											</tr>
+											<tr>
+												<td style="padding-top:0.5em;">#{msgs.full_name}</td>
+												<td style="padding-top:0.5em;"><input jsfc="h:inputText" id="fullName" size="50" maxlength="50" value="#{users.users.fullName}"/>
+												#{msgs.full_name_info}</td>
+
+											</tr>
+											<tr>
+												<td>#{msgs.user_email}</td>
+												<td><input jsfc="h:inputText" id="userEmail" size="30" maxlength="50" value="#{users.users.userEmail}"/></td>
+											</tr>
+											<tr>
+												<td>#{msgs.user_birthday}</td>
+												<td><input jsfc="rich:calendar" id="departureDate"
+															   datePattern="dd-MM-yyyy"
+															   enableManualInput="true"
+															   value="#{users.users.userBirthday}"/> #{msgs.date_format_info}
+													<h:messages globalOnly="false" for="departureDate" style="color:red;"/>
+												</td>
+											</tr>
+											<tr>
+												<td>#{msgs.user_mobile_phone}<br/><br/></td>
+												<td><input jsfc="h:inputText" id="userMobilePhone" size="20" maxlength="15" value="#{users.users.userMobilePhone}"/><br/><br/>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2"><p><img src="../images/material/h_separ.jpg" /></p></td>
+											</tr>											
+											<tr>
+												<td colspan="2"><span class="title">#{msgs.company_data}</span></td>
+											</tr>
+											<tr>
+												<td style="padding-top:0.5em;">#{msgs.user_agentname}</td>
+												<td style="padding-top:0.5em;"><input jsfc="h:inputText" id="userAgentName" size="50" maxlength="50" value="#{users.users.userAgentName}"/>
+												</td>
+											</tr>
+											<tr>
+												<td>#{msgs.user_office_address}</td>
+												<td><input jsfc="h:inputText" id="userOfficeAddress1" size="50" maxlength="50" value="#{users.users.userOfficeAddress1}"/>
+												</td>
+											</tr>
+											<tr>
+												<td>&#160;</td>
+												<td><input jsfc="h:inputText" id="userOfficeAddress2" size="50" maxlength="50" value="#{users.users.userOfficeAddress2}"/>
+												</td>
+											</tr>
+											<tr>
+												<td>&#160;</td>
+												<td><input jsfc="h:inputText" id="userOfficeAddress3" size="50" maxlength="50" value="#{users.users.userOfficeAddress3}"/>
+												</td>
+											</tr>
+											<tr>
+												<td>#{msgs.user_office_city}</td>
+												<td><input jsfc="h:inputText" id="userOfficeCity" size="30" maxlength="30" value="#{users.users.userOfficeCity}"/>
+													&#160;#{msgs.user_office_zip}&#160;&#160;
+													<input jsfc="h:inputText" id="userOfficeZip" size="4" maxlength="10" value="#{users.users.userOfficeZip}"/>
+												</td>
+											</tr>
+											<tr>
+												<td>#{msgs.user_office_phone}</td>
+												<td><input jsfc="h:inputText" id="userOfficePhone" size="30" maxlength="30" value="#{users.users.userOfficePhone}"/>
+													&#160;&#160;#{msgs.user_office_ext}&#160;
+												<input jsfc="h:inputText" id="userOfficeExt" size="10" maxlength="10" value="#{users.users.userOfficeExt}"/></td>
+											</tr>
+											<tr>
+												<td>#{msgs.user_office_fax}<br/><br/></td>
+												<td><input jsfc="h:inputText" id="userOfficeFax" size="30" maxlength="30" value="#{users.users.userOfficeFax}"/><br/><br/></td>
+											</tr>
+											<tr>
+												<td colspan="2"><p><img src="../images/material/h_separ.jpg" /></p></td>
+											</tr>											
+											<tr>
+												<td colspan="2"><span class="title">#{msgs.sign_on_data}</span></td>
+											</tr>
+											<tr>
+												<td style="padding-top:0.5em;" colspan="2">PCC: <input jsfc="h:inputText" id="userPcc" size="4" maxlength="4" value="#{users.users.userPcc}"/>
+													&#160;&#160;SON: Z <input jsfc="h:inputText" id="userSon" size="2" maxlength="2" value="#{users.users.userSon}"/>
+												</td>
+											</tr>
+											<tr>
+												<td>&#160;</td>
+												<td><br/> <input id="register" jsfc="h:commandButton"
+																	 type="submit" value="#{msgs.register}"
+																	 class="submit_btn"
+																	 action="#{users.newMemberRegistrationSave}" />
+													&#160; <input id="cancel" jsfc="h:commandButton"
+																  type="submit" value="#{msgs.cancel}"
+																  class="submit_btn"
+																  action="#{users.newMemberRegistrationCancel}" />
+												<br/><br/></td>
+											</tr>
+										</table>
+									</form>
+
+							<h:messages globalOnly="false" style="color:red;"/>
+						</ui:define>
+					</ui:composition>
+					<!-- end content-->
+                </div>
+                <div id="bootom">
+                    <div class="footer">
+                        <div class="bot-left">
+                            <ul>
+                                <li><a href="">Travelport Global</a></li>
+                                <li><a href="">Privacy Policy</a></li>
+                                <li><a href="">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                        <div class="bot-right">
+                            &copy; 2011 Galileo Indonesia. All rights reserved. <a href="http://www.webarq.com" title="Web Design Company Jakarta, Indonesia">Design by WEBARQ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>

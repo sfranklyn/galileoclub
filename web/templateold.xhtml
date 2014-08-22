@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:chart="http://sourceforge.net/projects/jsf-comp"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <meta lang="#{visit.locale}" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <base href="#{app.baseURL}" />
+        <link rel="stylesheet" type="text/css" href="/galileoclub/default.css" media="screen"/>
+        <title>Selamat Datang di Galileo Club</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="title">
+                    <h1>Selamat Datang di Galileo Club</h1>
+                </div>
+                <div class="navigation">
+                    <c:if test="#{visit.userName==null}">
+                        <a href="index.xhtml">#{msgs.home}</a>
+                    </c:if>
+                    <c:if test="#{visit.userName!=null}">
+                        <a href="secure/index.xhtml">
+                            #{msgs.user_menu}
+                        </a>
+                    </c:if>
+                    <div class="clearer"><span></span></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <c:if test="#{visit.userName!=null}">
+                        <h4>
+                            #{msgs.welcome} #{visit.fullName}
+                            <c:if test="#{visit.pointCount!=null}">
+                                <br/>#{msgs.total_point}: #{visit.pointCount}
+                            </c:if>
+                            <br/><br/>
+                        </h4>
+                    </c:if>
+                    <ui:insert name="body">Default Body</ui:insert>
+                </div>
+                <c:if test="#{visit.userName!=null}">
+                    <div class="sidenav">
+                        <h1>#{msgs.user_menu}</h1>
+                        <form id="userMenu" jsfc="h:form">
+                            <ul>
+                                <c:forEach items="#{visit.menuList}" var="menu">
+                                    <ui:include src="secure/#{menu}"/>
+                                </c:forEach>
+                                <li><br/>&#160;&#160;&#160;&#160;&#160;&#160;
+                                    <input type="submit"
+                                           jsfc="h:commandButton" id="logout"
+                                           value="Log Out" action="#{logOut.logOut}" />
+                                    <br/><br/>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </c:if>
+                <div class="clearer"><span></span></div>
+            </div>
+        </div>
+        <div class="footer">
+            <form jsfc="h:form" id="chooseLanguage">
+                #{msgs.language} : &#160; &#160;
+                <input jsfc="h:commandButton" id="english" value="English"
+                       type="image" image="../img/en_US.gif" action="#{visit.chooseEnglish}" >
+                </input>
+                English &#160; &#160;
+                <input jsfc="h:commandButton" id="indonesia" value="Indonesia"
+                       type="image" image="../img/in_ID.gif" action="#{visit.chooseIndonesia}" >
+                </input>
+                Indonesia
+            </form>
+            &#169; 2008 <a href="http://www.galileoindonesia.com">Galileo Indonesia</a>.
+            Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &#38;
+            <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.
+            <a href="http://templates.arcsin.se">Website template</a> by <a href="http://arcsin.se">Arcsin</a>
+        </div>
+    </body>
+</html>

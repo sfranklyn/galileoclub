@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:chart="http://sourceforge.net/projects/jsf-comp"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Galileo Club" />
+	<meta name="keywords" content="galileo,indonesia,club" />
+	<meta name="author" content="Samuel Franklyn" />
+	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+	<title>Galileo Club</title>
+</head>
+    <body>
+		<ui:composition template="/template.xhtml">
+			<ui:define name="body">
+
+						<span class="title">#{msgs.delete} #{msgs.point}</span>
+						<p>
+							<form id="points" jsfc="h:form">
+								<h:commandLink id="points"
+											   action="redirect:secure/points" value="#{msgs.points_maintenance}"/>
+							</form><br/>
+							<form id="pointsDelete" jsfc="h:form">
+								<table>
+									<tr>
+										<td>#{msgs.point_user_code}</td>
+										<td>:#{points.points.pointUserCode}</td>
+									</tr>
+									<tr>
+										<td>#{msgs.point_pcc}</td>
+										<td>:#{points.points.pointPcc}</td>
+									</tr>
+									<tr>
+										<td>#{msgs.point_son}</td>
+										<td>:#{points.points.pointSignon}</td>
+									</tr>
+									<tr>
+										<td>#{msgs.year}</td>
+										<td>:#{points.points.pointYear}</td>
+									</tr>
+									<tr>
+										<td>#{msgs.month}</td>
+										<td>:#{points.points.pointMonth}</td>
+									</tr>
+									<tr>
+										<td>#{msgs.day}</td>
+										<td>:#{points.points.pointDay}</td>
+									</tr>
+									<tr>
+										<td>#{msgs.point}</td>
+										<td>:#{points.points.pointCount}</td>
+									</tr>
+									<tr>
+										<td>#{msgs.point_value}</td>
+										<td>:#{points.points.pointValue}</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td><input id="submit" jsfc="h:commandButton"
+													   type="submit" value="#{msgs.delete}"
+													   class="submit_btn"
+													   action="#{points.saveDelete}" />
+										</td>
+									</tr>
+								</table>
+							</form>
+							<h:messages globalOnly="true" style="color:red;"/>
+						</p>
+
+			</ui:define>
+		</ui:composition>
+    </body>
+</html>

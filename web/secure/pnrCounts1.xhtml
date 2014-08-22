@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:chart="http://sourceforge.net/projects/jsf-comp"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Galileo Club" />
+	<meta name="keywords" content="galileo,indonesia,club" />
+	<meta name="author" content="Samuel Franklyn" />
+	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+	<title>Galileo Club</title>
+</head>
+    <body>
+		<ui:composition template="/template.xhtml">
+			<ui:define name="body">
+
+						<span class="title">#{msgs.segment_count_created}</span>
+						<form id="pnrCounts1" jsfc="h:form">
+							<h:commandLink id="segment_counter"
+										   action="redirect:secure/segmentCounter"
+										   value="#{msgs.segment_counter}"/><br/><br/>
+							<rich:dataTable id="dataTable"
+											value="#{pnrCounts.dataModel1}"
+											rows="#{pnrCounts.noOfRows}"
+											var="pnrCount"
+											styleClass="dataTable"
+											headerClass="dataTableHeader"
+											columnClasses="dataTableColumn"
+											>
+								<h:column id="idx">
+									<f:facet name="header">
+										#{msgs.no}
+									</f:facet>
+									#{pnrCounts.dataModel1.rowIndex+1}
+								</h:column>
+								<h:column id="pnrcountsYearmonth">
+									<f:facet name="header">
+										<h:commandLink id="sort1"
+													   action="#{pnrCounts.pnrCounts1Sort}"
+													   value="#{msgs.yearmonth}"/>
+									</f:facet>
+									#{pnrCount[0]}
+								</h:column>
+								<h:column id="pnrcountsCount">
+									<f:facet name="header">
+										#{msgs.month_to_date}
+									</f:facet>
+									#{pnrCount[1]}
+								</h:column>
+								<h:column id="pnrcountsNamecount">
+									<f:facet name="header">
+										#{msgs.tickets}
+									</f:facet>
+									#{pnrCount[3]}
+								</h:column>
+								<h:column id="pnrcountsWaitcount">
+									<f:facet name="header">
+										#{msgs.waitlist}
+									</f:facet>
+									#{pnrCount[2]}
+								</h:column>
+								<h:column id="action">
+									<f:facet name="header">
+										#{msgs.action}
+									</f:facet>
+									<h:commandLink id="readLink"
+												   action="#{pnrCounts.read1}"
+												   value="#{msgs.read}"/>&#160;&#160;&#160;
+									<h:commandLink id="transferToPoint"
+												   action="#{pnrCounts.transferToPoint}"
+												   value="#{msgs.transferToPoint}"/>&#160;
+								</h:column>
+								<f:facet name="footer">
+									<rich:datascroller id="scroll"
+													   for="dataTable"
+													   fastStep="#{pnrCounts.fastStep}"
+													   tableStyleClass="paginator">
+										<f:facet name="previous">
+											&lt;
+										</f:facet>
+										<f:facet name="next">
+											>
+										</f:facet>
+									</rich:datascroller>
+								</f:facet>
+							</rich:dataTable>
+						</form>
+
+			</ui:define>
+		</ui:composition>
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:chart="http://sourceforge.net/projects/jsf-comp"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="title">
+                    <h1>Galileo Club</h1>
+                </div>
+                <div class="navigation">
+                    <a href="index.xhtml">Home</a>
+                    <a href="secure/index.xhtml">Log In</a>
+                    <div class="clearer"><span></span></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <ui:composition template="/template.xhtml">
+                        <ui:define name="body">
+                            <h1>#{msgs.segmentcount_bypcc}</h1>
+                            <form id="pnrCounts6" jsfc="h:form">
+                                <h:commandLink id="segment_counter"
+                                               action="redirect:secure/segmentCounter"
+                                               value="#{msgs.segment_counter}"/><br/><br/>
+                                <chart:chart id="chartPnrCounts6" type="pie" datasource="#{pnrCounts.pieDataset}" />
+                                <br/>
+                                #{msgs.pccs_pcc} :&#160;
+                                <input jsfc="h:inputText" id="pnrCountsPcc"
+                                       size="4" maxlength="4"
+                                       value="#{pnrCounts.pnrCountsPcc}"/>&#160;
+                                <input id="findByPcc" jsfc="h:commandButton"
+                                       type="submit" value="#{msgs.find}"
+                                       action="#{pnrCounts.findByPcc2}" /><br/><br/>
+                                #{msgs.desc} :&#160;
+                                <input jsfc="h:inputText" id="pnrCountDesc"
+                                       size="50" maxlength="200"
+                                       value="#{pnrCounts.pnrCountsPccDesc}"/>&#160;
+                                <input id="findByPccDesc" jsfc="h:commandButton"
+                                       type="submit" value="#{msgs.find}"
+                                       action="#{pnrCounts.findByPccDesc2}" /><br/><br/>
+                                <rich:dataTable id="dataTable"
+                                                value="#{pnrCounts.dataModel6}"
+                                                rows="#{pnrCounts.noOfRows}"
+                                                var="pnrCount"
+                                                styleClass="dataTable"
+                                                headerClass="dataTableHeader"
+                                                columnClasses="dataTableColumn"
+                                                >
+                                    <h:column id="idx">
+                                        <f:facet name="header">
+                                            #{msgs.no}
+                                        </f:facet>
+                                        #{pnrCounts.dataModel6.rowIndex+1}
+                                    </h:column>
+                                    <h:column id="pccs_pcc">
+                                        <f:facet name="header">
+                                            #{msgs.pccs_pcc}
+                                        </f:facet>
+                                        #{pnrCount[0]}
+                                    </h:column>
+                                    <h:column id="pccs_desc">
+                                        <f:facet name="header">
+                                            #{msgs.desc}
+                                        </f:facet>
+                                        #{pnrCount[1]}
+                                    </h:column>
+                                    <h:column id="month_to_date">
+                                        <f:facet name="header">
+                                            #{msgs.total_segment}
+                                        </f:facet>
+                                        #{pnrCount[2]}
+                                    </h:column>
+                                    <h:column id="namecount">
+                                        <f:facet name="header">
+                                            #{msgs.tickets}
+                                        </f:facet>
+                                        #{pnrCount[4]}
+                                    </h:column>
+                                    <h:column id="waitlist">
+                                        <f:facet name="header">
+                                            #{msgs.waitlist}
+                                        </f:facet>
+                                        #{pnrCount[3]}
+                                    </h:column>
+                                    <h:column id="action">
+                                        <f:facet name="header">
+                                            #{msgs.action}
+                                        </f:facet>
+                                        <h:commandLink id="readLink"
+                                                       action="#{pnrCounts.read7}"
+                                                       value="#{msgs.read}"/>&#160;&#160;&#160;
+                                    </h:column>
+                                    <f:facet name="footer">
+                                        <rich:datascroller id="scroll"
+                                                           for="dataTable"
+                                                           fastStep="#{pnrCounts.fastStep}"
+                                                           tableStyleClass="paginator">
+                                            <f:facet name="previous">
+                                                &lt;
+                                            </f:facet>
+                                            <f:facet name="next">
+                                                >
+                                            </f:facet>
+                                        </rich:datascroller>
+                                    </f:facet>
+                                </rich:dataTable>
+                            </form><br/>
+                        </ui:define>
+                    </ui:composition>
+                </div>
+                <div class="clearer"><span></span></div>
+            </div>
+        </div>
+        <div class="footer">&#169; 2007 <a href="http://jroller.com/sfranklyn">Samuel Franklyn</a>.
+            Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &#38;
+            <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.
+            <a href="http://templates.arcsin.se">Website template</a> by <a href="http://arcsin.se">Arcsin</a>
+        </div>
+    </body>
+</html>

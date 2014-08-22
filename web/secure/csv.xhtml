@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Galileo Club" />
+	<meta name="keywords" content="galileo,indonesia,club" />
+	<meta name="author" content="Samuel Franklyn" />
+	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+	<title>Galileo Club</title>
+</head>
+    <body>
+		<ui:composition>
+			<li><a href="secure/users.xhtml">#{msgs.users_maintenance}</a></li>
+			<li><a href="secure/roles.xhtml">#{msgs.roles_maintenance}</a></li>
+			<li><a href="secure/users_roles.xhtml">#{msgs.users_roles_maintenance}</a></li>
+			<li><a href="secure/urls_roles.xhtml">#{msgs.urls_roles_maintenance}</a></li>
+			<li><a href="secure/newMember.xhtml">#{msgs.new_member_verification}</a></li>
+			<li><a href="secure/newClaim.xhtml">#{msgs.new_claim}</a></li>
+			<li><a href="secure/news.xhtml">#{msgs.news_maintenance}</a></li>
+			<li><a href="secure/claims.xhtml">#{msgs.claims_list}</a></li>
+			<li><h:commandLink action="#{users.editProfile}" value="#{msgs.edit_profile}"/></li>
+			<li><h:commandLink action="#{users.changePassword}" value="#{msgs.change_password}"/></li>
+		</ui:composition>
+    </body>
+</html>

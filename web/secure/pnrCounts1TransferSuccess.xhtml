@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:chart="http://sourceforge.net/projects/jsf-comp"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="title">
+                    <h1>Galileo Club</h1>
+                </div>
+                <div class="navigation">
+                    <a href="index.xhtml">Home</a>
+                    <a href="secure/index.xhtml">Log In</a>
+                    <div class="clearer"><span></span></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <ui:composition template="/template.xhtml">
+                        <ui:define name="body">
+                            #{msgs.transfer_success_info}
+                        </ui:define>
+                    </ui:composition>
+                </div>
+                <div class="clearer"><span></span></div>
+            </div>
+        </div>
+        <div class="footer">&#169; 2007 <a href="http://jroller.com/sfranklyn">Samuel Franklyn</a>.
+            Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &#38;
+            <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.
+            <a href="http://templates.arcsin.se">Website template</a> by <a href="http://arcsin.se">Arcsin</a>
+        </div>
+    </body>
+</html>

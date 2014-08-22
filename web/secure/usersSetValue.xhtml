@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:chart="http://sourceforge.net/projects/jsf-comp"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+
+            <form id="usersSetValue" jsfc="h:form">
+                #{msgs.change_user_value_from} :&#160;
+                <input jsfc="h:inputText" id="userPointValueFrom"
+                       size="5" maxlength="5"
+                       value="#{users.userPointValueFrom}"/>&#160;
+                #{msgs.into} :&#160;
+                <input jsfc="h:inputText" id="userPointValueInto"
+                       size="5" maxlength="5"
+                       value="#{users.userPointValueInto}"/><br/>
+                <input id="setValueSave" jsfc="h:commandButton"
+                       type="submit" value="#{msgs.set_value}"
+                       class="submit_btn"
+                       action="#{users.setValueSave}" />
+            </form>
+
+        </ui:define>
+    </ui:composition>
+</body>
+</html>

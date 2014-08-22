@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:chart="http://sourceforge.net/projects/jsf-comp"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="title">
+                    <h1>Galileo Club</h1>
+                </div>
+                <div class="navigation">
+                    <a href="index.xhtml">Home</a>
+                    <a href="secure/index.xhtml">Log In</a>
+                    <div class="clearer"><span></span></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <ui:composition template="/template.xhtml">
+                        <ui:define name="body">
+                            <h1>#{msgs.segmentcount_byyearmonthday}</h1>
+                            <form id="pnrCounts2" jsfc="h:form">
+                                <h:commandLink id="segment_counter"
+                                               action="redirect:secure/segmentCounter"
+                                               value="#{msgs.segment_counter}"/><br/><br/>
+                                <h:commandLink id="segment_count_created"
+                                               action="redirect:secure/pnrCounts1"
+                                               value="#{msgs.segment_count_created}"/><br/><br/>
+                                <chart:chart id="chartPnrCounts2" datasource="#{pnrCounts.timeSeriesDataSet1}"
+                                             type="timeseries" legend="true" xlabel="Date" ylabel="Quantity" width="600"/>
+                                <rich:dataTable id="dataTable"
+                                                value="#{pnrCounts.dataModel2}"
+                                                var="pnrCount"
+                                                styleClass="dataTable"
+                                                headerClass="dataTableHeader"
+                                                columnClasses="dataTableColumn"
+                                                >
+                                    <h:column id="idx">
+                                        <f:facet name="header">
+                                            No
+                                        </f:facet>
+                                        #{pnrCounts.dataModel2.rowIndex+1}
+                                    </h:column>
+                                    <h:column id="yearmonthday">
+                                        <f:facet name="header">
+                                            <h:commandLink id="sort2"
+                                                           action="#{pnrCounts.sort1}"
+                                                           value="#{msgs.yearmonthday}"/>
+                                        </f:facet>
+                                        #{pnrCount.yearmonthday}
+                                    </h:column>
+                                    <h:column id="count">
+                                        <f:facet name="header">
+                                            #{msgs.month_to_date}
+                                        </f:facet>
+                                        #{pnrCount.count}
+                                    </h:column>
+                                    <h:column id="nameCount">
+                                        <f:facet name="header">
+                                            #{msgs.tickets}
+                                        </f:facet>
+                                        #{pnrCount.nameCount}
+                                    </h:column>
+                                    <h:column id="waitcount">
+                                        <f:facet name="header">
+                                            #{msgs.waitlist}
+                                        </f:facet>
+                                        #{pnrCount.waitCount}
+                                    </h:column>
+                                    <h:column id="daytodate">
+                                        <f:facet name="header">
+                                            #{msgs.daily}
+                                        </f:facet>
+                                        #{pnrCount.daytodate}
+                                    </h:column>
+                                    <h:column id="cancelled">
+                                        <f:facet name="header">
+                                            #{msgs.canceled}
+                                        </f:facet>
+                                        #{pnrCount.minusCount}
+                                    </h:column>
+                                    <h:column id="created">
+                                        <f:facet name="header">
+                                            #{msgs.created}
+                                        </f:facet>
+                                        #{pnrCount.plusCount}
+                                    </h:column>
+                                    <h:column id="action">
+                                        <f:facet name="header">
+                                            #{msgs.action}
+                                        </f:facet>
+                                        <h:commandLink id="readLink"
+                                                       action="#{pnrCounts.read2}"
+                                                       value="#{msgs.read}"/>&#160;
+                                    </h:column>
+                                </rich:dataTable><br/>
+                            </form>
+                        </ui:define>
+                    </ui:composition>
+                </div>
+                <div class="clearer"><span></span></div>
+            </div>
+        </div>
+        <div class="footer">&#169; 2007 <a href="http://jroller.com/sfranklyn">Samuel Franklyn</a>.
+            Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &#38;
+            <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.
+            <a href="http://templates.arcsin.se">Website template</a> by <a href="http://arcsin.se">Arcsin</a>
+        </div>
+    </body>
+</html>

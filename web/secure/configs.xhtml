@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Galileo Club" />
+	<meta name="keywords" content="galileo,indonesia,club" />
+	<meta name="author" content="Samuel Franklyn" />
+	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+	<title>Galileo Club</title>
+</head>
+    <body>
+		<ui:composition template="/template.xhtml">
+			<ui:define name="body">
+
+						<span class="title">#{msgs.configs_maintenance}</span>
+						<p>
+							<form id="crud" jsfc="h:form">
+								<h:commandLink id="create"
+											   action="#{configs.create}"
+											   value="#{msgs.create}"/>
+								<br/><br/>
+								<rich:dataTable id="data_table"
+											 value="#{configs.dataModel}"
+											 rows="#{configs.noOfRows}"
+											 var="config"
+											 styleClass="dataTable"
+											 headerClass="dataTableHeader"
+											 columnClasses="dataTableColumn"
+											 >
+									<h:column id="config_key">
+										<f:facet name="header">
+											#{msgs.config_key}
+										</f:facet>
+										#{config.configKey}
+									</h:column>
+									<h:column id="config_desc">
+										<f:facet name="header">
+											#{msgs.config_desc}
+										</f:facet>
+										#{config.configDesc}
+									</h:column>
+									<h:column id="config_type">
+										<f:facet name="header">
+											#{msgs.config_type}
+										</f:facet>
+										#{config.configType}
+									</h:column>
+									<h:column id="config_value">
+										<f:facet name="header">
+											#{msgs.config_value}
+										</f:facet>
+										#{config.configValue}
+									</h:column>
+									<h:column id="action">
+										<f:facet name="header">
+											#{msgs.action}
+										</f:facet>
+										<h:commandLink id="readLink"
+													   action="#{configs.read}"
+													   value="#{msgs.read}"/><br/>
+										<h:commandLink id="updateLink"
+													   action="#{configs.update}"
+													   value="#{msgs.update}"/><br/>
+										<h:commandLink id="deleteLink"
+													   action="#{configs.delete}"
+													   value="#{msgs.delete}"/>
+									</h:column>
+									<f:facet name="footer">
+										<rich:datascroller id="scroll"
+														   for="data_table"
+														   fastStep="#{config.fastStep}"
+														   tableStyleClass="paginator">
+											<f:facet name="previous">
+												&lt;
+											</f:facet>
+											<f:facet name="next">
+												>
+											</f:facet>
+										</rich:datascroller>
+									</f:facet>
+								</rich:dataTable>
+							</form>
+						</p><br/>
+
+			</ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Galileo Club" />
+	<meta name="keywords" content="galileo,indonesia,club" />
+	<meta name="author" content="Samuel Franklyn" />
+	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+	<title>Galileo Club</title>
+</head>
+    <body>
+		<ui:composition template="/template.xhtml">
+			<ui:define name="body">
+
+						<span class="title">#{msgs.users_roles_maintenance}</span>
+						<p>
+							<form id="crud" jsfc="h:form">
+								<h:commandLink id="create"
+											   action="#{usersRoles.create}"
+											   value="#{msgs.create}"/>
+								<br/><br/>
+								<rich:dataTable id="data_table"
+											 value="#{usersRoles.dataModel}"
+											 rows="#{usersRoles.noOfRows}"
+											 var="userRole"
+											 styleClass="dataTable"
+											 headerClass="dataTableHeader"
+											 columnClasses="dataTableColumn"
+											 >
+									<h:column id="role_name">
+										<f:facet name="header">
+											#{msgs.role_name}
+										</f:facet>
+										#{userRole.roles.roleName}
+									</h:column>
+									<h:column id="user_name">
+										<f:facet name="header">
+											#{msgs.user_name}
+										</f:facet>
+										#{userRole.users.userName}
+									</h:column>
+									<h:column id="action">
+										<f:facet name="header">
+											#{msgs.action}
+										</f:facet>
+										<h:commandLink id="readLink"
+													   action="#{usersRoles.read}"
+													   value="#{msgs.read}"/>&#160;
+										<h:commandLink id="deleteLink"
+													   action="#{usersRoles.delete}"
+													   value="#{msgs.delete}"/>
+									</h:column>
+									<f:facet name="footer">
+										<rich:datascroller id="scroll"
+														for="data_table"
+														fastStep="#{usersRoles.fastStep}"
+														tableStyleClass="paginator">
+											<f:facet name="previous">
+												&lt;
+											</f:facet>
+											<f:facet name="next">
+												>
+											</f:facet>
+										</rich:datascroller>
+									</f:facet>
+								</rich:dataTable>
+							</form>
+						</p><br/>
+
+			</ui:define>
+		</ui:composition>
+    </body>
+</html>

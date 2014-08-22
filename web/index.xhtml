@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+    <head>
+        <title>Nautica2.2 Liquid</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Indonesia APF" />
+        <meta name="keywords" content="galileo,indonesia" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <!--[if lt IE 7.]>
+	<link rel="stylesheet" type="text/css" href="css/style_ie.css" />
+	<![endif]-->
+    </head>
+    <body>
+        <center>
+            <div id="main_gali">
+                <div class="all">
+                    <div class="log">
+                        <a href="index.xhtml"><img src="../images/material/logo02.jpg" style="float:left;" /></a>
+                        <div class="mn_top02">
+                            <form jsfc="h:form" id="chooseLanguage">
+                                <ul>
+                                    <li class="no-marg">#{msgs.language} : &#160; &#160;</li>
+                                    <li class="no-marg" style="padding-right:10px;"><input style="vertical-align:middle;" jsfc="h:commandButton" id="english" value="English" type="image" image="../images/flag_eng.jpg" action="#{visit.chooseEnglish}" /> English</li>
+                                    <li class="no-marg"><input style="vertical-align:middle;" jsfc="h:commandButton" id="indonesia" value="Indonesia" type="image" image="../images/flag_ind.jpg" action="#{visit.chooseIndonesia}" /> Indonesia</li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="header-02"></div>
+                    <div class="body_container">
+                        <ui:composition template="/template.xhtml">
+                            <ui:define name="body">
+                                <!-- content -->
+                                <c:if test="#{visit.userName==null}">
+                                    <h2>#{msgs.news}</h2>
+                                    <h:dataTable id="data_table" value="#{news.dataModel}" rows="#{news.noOfRows}" var="newsItem" >
+                                        <h:column id="news_text">
+                                            <pre style="float:left; position:relative;">
+#{newsItem.newsDateFormatted}
+#{newsItem.newsText}
+                                            </pre>
+                                        </h:column>
+                                    </h:dataTable>
+                                </c:if>
+                            </ui:define>
+                        </ui:composition>
+                    </div>
+                    <div id="bootom">
+                        <div class="footer">
+                            <p align="center">&copy; 2011 Galileo Indonesia. All rights reserved. <a href="http://www.webarq.com" title="Web Design Company Jakarta, Indonesia">Design by WEBARQ</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </body>
+</html>

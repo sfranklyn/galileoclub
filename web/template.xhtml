@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+    <head>
+        <meta lang="#{visit.locale}" />
+        <title>#{msgs.welcome_to_galileo_club}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <base href="#{app.baseURL}" />
+        <link rel="stylesheet" type="text/css" href="/galileoclub/css/style.css" />
+        <!--[if lt IE 7.]>
+	<link rel="stylesheet" type="text/css" href="/galileoclub/css/style_ie.css" />
+	<![endif]-->
+    </head>
+    <body>
+        <center>
+            <div id="main_gali">
+                <div class="all">
+                    <div class="log">
+                        <a href="index.xhtml"><img src="../images/material/logo02.jpg" style="float:left;" /></a>
+                        <div class="mn_top02">
+                            <form jsfc="h:form" id="chooseLanguage">
+                                <ul>
+                                    <li class="no-marg">#{msgs.language} : &#160; &#160;</li>
+                                    <li class="no-marg" style="padding-right:10px;"><input style="vertical-align:middle;" jsfc="h:commandButton" id="english" value="English" type="image" image="../images/flag_eng.jpg" action="#{visit.chooseEnglish}" /> English</li>
+                                    <li class="no-marg"><input style="vertical-align:middle;" jsfc="h:commandButton" id="indonesia" value="Indonesia" type="image" image="../images/flag_ind.jpg" action="#{visit.chooseIndonesia}" /> Indonesia</li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="header-02"></div>
+                    <div class="body_container">
+                        <!-- content -->
+                        <c:if test="#{visit.userName!=null}">
+                            <div class="pan_left02">
+                                <div class="left02">
+                                    <div class="news">
+                                        <h2>#{msgs.user_menu}</h2>
+                                        <form id="userMenu" jsfc="h:form">
+                                            <ul>
+                                                <c:forEach items="#{visit.menuList}" var="menu">
+                                                    <ui:include src="secure/#{menu}"/>
+                                                </c:forEach>
+                                            </ul>
+                                            <input type="submit" jsfc="h:commandButton" id="logout" value="Log Out" class="submit_btn" action="#{logOut.logOut}" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+                        <c:if test="#{visit.userName==null}">
+                            <div class="pan_left02">
+                                <div class="left02">
+                                    <div class="news">
+                                        <h2>#{msgs.member_login}</h2>
+                                        <form jsfc="h:form" id="login">
+                                            <span class="title">#{msgs.user_name}:</span><br/>
+                                            <input jsfc="h:inputText"
+                                                   id="userName"
+                                                   value="#{logIn.userName}" style="width:12em"/>
+                                            &#160;
+                                            <span class="title">#{msgs.user_password}:</span><br/>
+                                            <input jsfc="h:inputSecret"
+                                                   id="userPassword"
+                                                   value="#{logIn.userPassword}" style="width:12em"/>
+                                            &#160;
+                                            <p>
+                                                <input jsfc="h:commandButton"
+                                                       id="login"
+                                                       type="submit"
+                                                       value="Log In"
+                                                       class="submit_btn"
+                                                       action="#{logIn.logIn}" />
+                                                &#160;
+                                            </p>
+                                            <h:messages globalOnly="true" style="color:red;"/>
+                                        </form>
+                                        <form jsfc="h:form" id="newMemberRegistration">
+                                            <span class="reg"><h:commandLink id="newMemberRegistration" action="#{users.newMemberRegistration}" value="#{msgs.new_member_registration}"/></span>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+                        <div class="middle02">
+                            <div class="globe02">
+                                <c:if test="#{visit.userName!=null}">
+                                    <h2>
+                                        #{msgs.welcome} #{visit.fullName} <br/>
+                                        #{visit.userCode}
+                                        <c:if test="#{visit.pointCount!=null}">
+                                            <br/>#{msgs.total_point}: #{visit.pointCount}
+                                        </c:if>
+                                    </h2>
+                                    <ui:insert name="body">Default Body</ui:insert>
+                                </c:if>
+                                <c:if test="#{visit.userName==null}">
+                                    <ui:insert name="body">Default Body</ui:insert>
+                                </c:if>
+                            </div>
+                        </div>
+                        <!-- end content-->
+                    </div>
+                    <div id="bootom">
+                        <div class="footer">
+                            <p align="center">&copy; 2011 Galileo Indonesia. All rights reserved. <a href="http://www.webarq.com" title="Web Design Company Jakarta, Indonesia">Design by WEBARQ</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </body>
+</html>
