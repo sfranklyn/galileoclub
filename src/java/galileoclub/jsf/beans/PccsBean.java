@@ -58,6 +58,7 @@ public class PccsBean {
             }
         } else {
             result = "redirect:secure/pccs";
+            pccs = new Pccs();
         }
 
         return result;
@@ -211,5 +212,4 @@ public class PccsBean {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-
 }

@@ -4,19 +4,19 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<meta lang="#{visit.locale}"  />
-	<style type="text/css">
-		body { 
-			font-family: sans-serif;
-		}
-	</style>
-	<title>Point Report</title>
-</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <meta lang="#{visit.locale}"  />
+        <style type="text/css">
+            body {
+                font-family: sans-serif;
+            }
+        </style>
+        <title>Point Report</title>
+    </head>
     <body>
         <p style="text-align: center">
             #{points.users.userName}/#{points.users.userPcc}/#{points.users.userSon}<br/>
@@ -69,7 +69,7 @@
     #{msgs.total_point}: #{points.pointCount}
     <hr/>
     <pre>
-#{points.response}
+        #{points.response}
     </pre>
     <hr/>
     <p>#{msgs.approval_signature}</p><br/><br/><br/><br/>

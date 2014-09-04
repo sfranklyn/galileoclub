@@ -33,40 +33,40 @@
                         <ui:define name="body">
                             <h1>#{msgs.update} #{msgs.news}</h1>
                             <p>
-                                <form id="news" jsfc="h:form">
-                                    <h:commandLink id="news"
-                                                   action="redirect:secure/news" value="#{msgs.news_maintenance}"/>
-                                </form><br/>
-                                <form id="newsUpdate" jsfc="h:form">
-                                    <table>
-                                        <tr>
-                                            <td>#{msgs.news_date}</td>
-                                            <td>:#{news.news.newsDate}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align:top">#{msgs.news_text}:</td>
-                                            <td><textarea jsfc="h:inputTextarea" id="newsText"
-                                                              cols="50" rows="15"
-                                                              value="#{news.news.newsText}" />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.news_status}</td>
-                                            <td>:<input jsfc="h:inputText" id="news_status"
-                                                            size="2" maxlength="1"
-                                                            value="#{news.news.newsStatus}"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td><input id="submit" jsfc="h:commandButton"
-                                                           type="submit" value="#{msgs.update}"
-                                                           action="#{news.saveUpdate}" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </form>
-                                <h:messages globalOnly="true" style="color:red;"/>
+                            <form id="news" jsfc="h:form">
+                                <h:commandLink id="news"
+                                               action="redirect:secure/news" value="#{msgs.news_maintenance}"/>
+                            </form><br/>
+                            <form id="newsUpdate" jsfc="h:form">
+                                <table>
+                                    <tr>
+                                        <td>#{msgs.news_date}</td>
+                                        <td>:#{news.news.newsDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:top">#{msgs.news_text}:</td>
+                                        <td><textarea jsfc="h:inputTextarea" id="newsText"
+                                                      cols="50" rows="15"
+                                                      value="#{news.news.newsText}" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.news_status}</td>
+                                        <td>:<input jsfc="h:inputText" id="news_status"
+                                                    size="2" maxlength="1"
+                                                    value="#{news.news.newsStatus}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><input id="submit" jsfc="h:commandButton"
+                                                   type="submit" value="#{msgs.update}"
+                                                   action="#{news.saveUpdate}" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <h:messages globalOnly="true" style="color:red;"/>
                             </p>
                         </ui:define>
                     </ui:composition>

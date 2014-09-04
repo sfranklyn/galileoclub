@@ -6,35 +6,37 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
     <body>
-		<ui:composition>
-			<li><h:commandLink id="editProfile"
-								   action="#{users.editProfile}"
-								   value="#{msgs.edit_profile}"/>
-			</li>
-			<li><h:commandLink id="pointClaimHistory"
-								   action="#{users.pointClaimHistory}"
-								   value="#{msgs.point_claim_history}"/>
-			</li>
-			<li><h:commandLink id="claimReward"
-								   action="#{users.claimReward}"
-								   value="#{msgs.claim_reward}"/>
-			</li>
-			<li><h:commandLink id="claimReconfirm"
-								   action="#{users.claimReconfirm}"
-								   value="#{msgs.claim_reconfirm}"/>
-			</li>
-			<li><h:commandLink action="#{users.changePassword}"
-								   value="#{msgs.change_password}"/>
-			</li>
-		</ui:composition>
-    </body>
+    <ui:composition>
+        <ul>
+            <li><h:commandLink id="editProfile"
+                               action="#{users.editProfile}"
+                               value="#{msgs.edit_profile}"/>
+            </li>
+            <li><h:commandLink id="pointClaimHistory"
+                               action="#{users.pointClaimHistory}"
+                               value="#{msgs.point_claim_history}"/>
+            </li>
+            <li>h:commandLink id="claimReward"
+                action="#{users.claimReward}"
+                value="#{msgs.claim_reward}"/>
+            </li>
+            <li><h:commandLink id="claimReconfirm"
+                               action="#{users.claimReconfirm}"
+                               value="#{msgs.claim_reconfirm}"/>
+            </li>
+            <li><h:commandLink action="#{users.changePassword}"
+                               value="#{msgs.change_password}"/>
+            </li>
+        </ul>
+    </ui:composition>
+</body>
 </html>

@@ -6,93 +6,93 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
     <body>
-		<ui:composition template="/template.xhtml">
-			<ui:define name="body">
-				<span class="title">#{msgs.new_member_verification}</span>
-				<p>
-					<form id="verification" jsfc="h:form">
-						<rich:dataTable id="data_table"
-									 value="#{users.dataModelNewMember}"
-									 rows="#{users.noOfRows}"
-									 var="user"
-									 styleClass="dataTable"
-									 headerClass="dataTableHeader"
-									 columnClasses="dataTableColumn"
-									 >
-							<h:column id="user_name">
-								<f:facet name="header">
-									#{msgs.user_name}
-								</f:facet>
-								#{user.userName}
-							</h:column>
-							<h:column id="full_name_user_email">
-								<f:facet name="header">
-									#{msgs.full_name}<br/>
-									#{msgs.user_email}
-								</f:facet>
-								#{user.fullName}<br/>
-								#{user.userEmail}
-							</h:column>
-							<h:column id="user_pcc">
-								<f:facet name="header">
-									#{msgs.user_pcc}
-								</f:facet>
-								#{user.userPcc}
-							</h:column>
-							<h:column id="user_son">
-								<f:facet name="header">
-									#{msgs.user_son}
-								</f:facet>
-								#{user.userSon}
-							</h:column>
-							<h:column id="user_agentname_user_office_city">
-								<f:facet name="header">
-									#{msgs.user_agentname}<br/>
-									 #{msgs.user_office_city}
-								</f:facet>
-								#{user.userAgentName}<br/>
-								#{user.userOfficeCity}
-							</h:column>
-							<h:column id="user_created">
-								<f:facet name="header">
-									#{msgs.user_created}
-								</f:facet>
-								#{user.userCreated}
-							</h:column>
-							<h:column id="action">
-								<f:facet name="header">
-									#{msgs.action}
-								</f:facet>
-								<h:commandLink id="verifyLink"
-											   action="#{users.newMemberVerification}"
-											   value="#{msgs.verification}"/>
-							</h:column>
-							<f:facet name="footer">
-								<rich:datascroller id="scroll"
-												for="data_table"
-												fastStep="#{users.fastStep}"
-												tableStyleClass="paginator">
-									<f:facet name="previous">
-										&lt;
-									</f:facet>
-									<f:facet name="next">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <span class="title">#{msgs.new_member_verification}</span>
+            <p>
+            <form id="verification" jsfc="h:form">
+                <rich:dataTable id="data_table"
+                                value="#{users.dataModelNewMember}"
+                                rows="#{users.noOfRows}"
+                                var="user"
+                                styleClass="dataTable"
+                                headerClass="dataTableHeader"
+                                columnClasses="dataTableColumn"
+                                >
+                    <h:column id="user_name">
+                        <f:facet name="header">
+                            #{msgs.user_name}
+                        </f:facet>
+                        #{user.userName}
+                    </h:column>
+                    <h:column id="full_name_user_email">
+                        <f:facet name="header">
+                            #{msgs.full_name}<br/>
+                            #{msgs.user_email}
+                        </f:facet>
+                        #{user.fullName}<br/>
+                        #{user.userEmail}
+                    </h:column>
+                    <h:column id="user_pcc">
+                        <f:facet name="header">
+                            #{msgs.user_pcc}
+                        </f:facet>
+                        #{user.userPcc}
+                    </h:column>
+                    <h:column id="user_son">
+                        <f:facet name="header">
+                            #{msgs.user_son}
+                        </f:facet>
+                        #{user.userSon}
+                    </h:column>
+                    <h:column id="user_agentname_user_office_city">
+                        <f:facet name="header">
+                            #{msgs.user_agentname}<br/>
+                            #{msgs.user_office_city}
+                        </f:facet>
+                        #{user.userAgentName}<br/>
+                        #{user.userOfficeCity}
+                    </h:column>
+                    <h:column id="user_created">
+                        <f:facet name="header">
+                            #{msgs.user_created}
+                        </f:facet>
+                        #{user.userCreated}
+                    </h:column>
+                    <h:column id="action">
+                        <f:facet name="header">
+                            #{msgs.action}
+                        </f:facet>
+                        <h:commandLink id="verifyLink"
+                                       action="#{users.newMemberVerification}"
+                                       value="#{msgs.verification}"/>
+                    </h:column>
+                    <f:facet name="footer">
+                        <rich:datascroller id="scroll"
+                                           for="data_table"
+                                           fastStep="#{users.fastStep}"
+                                           tableStyleClass="paginator">
+                            <f:facet name="previous">
+                                &lt;
+                            </f:facet>
+                            <f:facet name="next">
 										>
-									</f:facet>
-								</rich:datascroller>
-							</f:facet>
-						</rich:dataTable>
-					</form>
-				</p>
-			</ui:define>
-		</ui:composition>
-    </body>
+                            </f:facet>
+                        </rich:datascroller>
+                    </f:facet>
+                </rich:dataTable>
+            </form>
+            </p>
+        </ui:define>
+    </ui:composition>
+</body>
 </html>

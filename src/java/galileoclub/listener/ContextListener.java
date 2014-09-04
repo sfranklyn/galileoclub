@@ -43,7 +43,7 @@ public class ContextListener implements ServletContextListener {
                 configs.setConfigKey(ConfigsServiceBean.SEGCOUNT_SIGNON_PASSWORD);
                 configs.setConfigDesc("Sign on and password for Segment Counter.For example AA/PWD");
                 configs.setConfigType("string");
-                configs.setConfigValue("N33977/SF16SEPT");
+                configs.setConfigValue("N36975/AUG2014");
                 configsServiceRemote.saveCreate(configs, Locale.getDefault());
             }
             configs = configsServiceRemote.getByKey(ConfigsServiceBean.SEGCOUNT_HCM);
@@ -75,13 +75,14 @@ public class ContextListener implements ServletContextListener {
                 scheduler.scheduleJob(jobDetail, trigger);
                 scheduler.start();
             }
+            /*
             configs = configsServiceRemote.getByKey(ConfigsServiceBean.ADMIN_MOBILE);
             if (configs == null) {
                 configs = new Configs();
                 configs.setConfigKey(ConfigsServiceBean.ADMIN_MOBILE);
                 configs.setConfigDesc("Admin mobile phone number");
                 configs.setConfigType("string");
-                configs.setConfigValue("+6289635547847");
+                configs.setConfigValue("+6283899294520");
                 configsServiceRemote.saveCreate(configs, Locale.getDefault());
             }
             configs = configsServiceRemote.getByKey(ConfigsServiceBean.ADMIN_MAIL);
@@ -90,9 +91,10 @@ public class ContextListener implements ServletContextListener {
                 configs.setConfigKey(ConfigsServiceBean.ADMIN_MAIL);
                 configs.setConfigDesc("Admin mail address");
                 configs.setConfigType("string");
-                configs.setConfigValue("sfranklyn@gmail.com");
+                configs.setConfigValue("pokian@gmail.com");
                 configsServiceRemote.saveCreate(configs, Locale.getDefault());
             }
+             */
         } catch (Exception ex) {
             log.log(Level.SEVERE, "GCLUB0001:" + ex.toString(), ex);
         }

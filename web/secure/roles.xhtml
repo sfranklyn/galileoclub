@@ -6,87 +6,87 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
-<body>
-	<ui:composition template="/template.xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+    <ui:composition template="/template.xhtml">
         <ui:define name="body">
 
-                    <span class="title">#{msgs.roles_maintenance}</span>
-                        <p>
-							<form id="crud" jsfc="h:form">
-								<h:commandLink id="create"
-											   action="#{roles.create}"
-											   value="#{msgs.create}"/>
-								<br/><br/>
-								<rich:dataTable id="data_table"
-											 value="#{roles.dataModel}"
-											 rows="#{roles.noOfRows}"
-											 var="role"
-											 styleClass="dataTable"
-											 headerClass="dataTableHeader"
-											 columnClasses="dataTableColumn"
-											 >
-									<h:column id="role_id">
-										<f:facet name="header">
-											#{msgs.role_id}
-										</f:facet>
-										#{role.roleId}
-									</h:column>
-									<h:column id="role_name">
-										<f:facet name="header">
-											#{msgs.role_name}
-										</f:facet>
-										#{role.roleName}
-									</h:column>
-									<h:column id="role_desc">
-										<f:facet name="header">
-											#{msgs.role_desc}
-										</f:facet>
-										#{role.roleDesc}
-									</h:column>
-									<h:column id="role_menu">
-										<f:facet name="header">
-											#{msgs.role_menu}
-										</f:facet>
-										#{role.roleMenu}
-									</h:column>
-									<h:column id="action">
-										<f:facet name="header">
-											#{msgs.action}
-										</f:facet>
-										<h:commandLink id="readLink"
-													   action="#{roles.read}"
-													   value="#{msgs.read}"/>&#160;
-										<h:commandLink id="updateLink"
-													   action="#{roles.update}"
-													   value="#{msgs.update}"/>&#160;
-										<h:commandLink id="deleteLink"
-													   action="#{roles.delete}"
-													   value="#{msgs.delete}"/>
-									</h:column>
-									<f:facet name="footer">
-										<rich:datascroller id="scroll"
-														   for="data_table"
-														   fastStep="#{roles.fastStep}"
-														   tableStyleClass="paginator">
-											<f:facet name="previous">
-												&lt;
-											</f:facet>
-											<f:facet name="next">
+            <span class="title">#{msgs.roles_maintenance}</span>
+            <p>
+            <form id="crud" jsfc="h:form">
+                <h:commandLink id="create"
+                               action="#{roles.create}"
+                               value="#{msgs.create}"/>
+                <br/><br/>
+                <rich:dataTable id="data_table"
+                                value="#{roles.dataModel}"
+                                rows="#{roles.noOfRows}"
+                                var="role"
+                                styleClass="dataTable"
+                                headerClass="dataTableHeader"
+                                columnClasses="dataTableColumn"
+                                >
+                    <h:column id="role_id">
+                        <f:facet name="header">
+                            #{msgs.role_id}
+                        </f:facet>
+                        #{role.roleId}
+                    </h:column>
+                    <h:column id="role_name">
+                        <f:facet name="header">
+                            #{msgs.role_name}
+                        </f:facet>
+                        #{role.roleName}
+                    </h:column>
+                    <h:column id="role_desc">
+                        <f:facet name="header">
+                            #{msgs.role_desc}
+                        </f:facet>
+                        #{role.roleDesc}
+                    </h:column>
+                    <h:column id="role_menu">
+                        <f:facet name="header">
+                            #{msgs.role_menu}
+                        </f:facet>
+                        #{role.roleMenu}
+                    </h:column>
+                    <h:column id="action">
+                        <f:facet name="header">
+                            #{msgs.action}
+                        </f:facet>
+                        <h:commandLink id="readLink"
+                                       action="#{roles.read}"
+                                       value="#{msgs.read}"/>&#160;
+                        <h:commandLink id="updateLink"
+                                       action="#{roles.update}"
+                                       value="#{msgs.update}"/>&#160;
+                        <h:commandLink id="deleteLink"
+                                       action="#{roles.delete}"
+                                       value="#{msgs.delete}"/>
+                    </h:column>
+                    <f:facet name="footer">
+                        <rich:datascroller id="scroll"
+                                           for="data_table"
+                                           fastStep="#{roles.fastStep}"
+                                           tableStyleClass="paginator">
+                            <f:facet name="previous">
+                                &lt;
+                            </f:facet>
+                            <f:facet name="next">
 												>
-											</f:facet>
-										</rich:datascroller>
-									</f:facet>
-								</rich:dataTable>
-							</form>
-                        </p><br/>
+                            </f:facet>
+                        </rich:datascroller>
+                    </f:facet>
+                </rich:dataTable>
+            </form>
+            </p><br/>
         </ui:define>
     </ui:composition>
 </body>

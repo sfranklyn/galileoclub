@@ -33,73 +33,73 @@
                         <ui:define name="body">
                             <h1>#{msgs.create} #{msgs.point}</h1>
                             <p>
-                                <form id="points" jsfc="h:form">
-                                    <h:commandLink id="points"
-                                                   action="redirect:secure/points" value="#{msgs.points_maintenance}"/>
-                                </form><br/>
-                                <form id="pointsCreate" jsfc="h:form">
-                                    <table>
-                                        <tr>
-                                            <td>#{msgs.point_user_code}</td>
-                                            <td>:#{points.points.pointUserCode}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.point_pcc}</td>
-                                            <td>:<input jsfc="h:inputText" id="pointPcc"
-                                                            size="4" maxlength="4"
-                                                            value="#{points.points.pointPcc}"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.point_son}</td>
-                                            <td>:<input jsfc="h:inputText" id="pointSignon"
-                                                            size="2" maxlength="2"
-                                                            value="#{points.points.pointSignon}"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.year}</td>
-                                            <td>:<input jsfc="h:inputText" id="pointYear"
-                                                            size="4" maxlength="4"
-                                                            value="#{points.points.pointYear}"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.month}</td>
-                                            <td>:<input jsfc="h:inputText" id="pointMonth"
-                                                            size="2" maxlength="2"
-                                                            value="#{points.points.pointMonth}"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.day}</td>
-                                            <td>:<input jsfc="h:inputText" id="pointDay"
-                                                            size="2" maxlength="2"
-                                                            value="#{points.points.pointDay}"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.point}</td>
-                                            <td>:<input jsfc="h:inputText" id="pointCount"
-                                                            size="30" maxlength="50"
-                                                            value="#{points.points.pointCount}"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.point_value}</td>
-                                            <td>:<input jsfc="h:inputText" id="pointValue"
-                                                            size="5" maxlength="5"
-                                                            value="#{points.points.pointValue}"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td><input id="submit" jsfc="h:commandButton"
-                                                           type="submit" value="#{msgs.create}"
-                                                           action="#{points.saveCreate}" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </form>
-                                <h:messages globalOnly="true" style="color:red;"/>
+                            <form id="points" jsfc="h:form">
+                                <h:commandLink id="points"
+                                               action="redirect:secure/points" value="#{msgs.points_maintenance}"/>
+                            </form><br/>
+                            <form id="pointsCreate" jsfc="h:form">
+                                <table>
+                                    <tr>
+                                        <td>#{msgs.point_user_code}</td>
+                                        <td>:#{points.points.pointUserCode}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.point_pcc}</td>
+                                        <td>:<input jsfc="h:inputText" id="pointPcc"
+                                                    size="4" maxlength="4"
+                                                    value="#{points.points.pointPcc}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.point_son}</td>
+                                        <td>:<input jsfc="h:inputText" id="pointSignon"
+                                                    size="2" maxlength="2"
+                                                    value="#{points.points.pointSignon}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.year}</td>
+                                        <td>:<input jsfc="h:inputText" id="pointYear"
+                                                    size="4" maxlength="4"
+                                                    value="#{points.points.pointYear}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.month}</td>
+                                        <td>:<input jsfc="h:inputText" id="pointMonth"
+                                                    size="2" maxlength="2"
+                                                    value="#{points.points.pointMonth}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.day}</td>
+                                        <td>:<input jsfc="h:inputText" id="pointDay"
+                                                    size="2" maxlength="2"
+                                                    value="#{points.points.pointDay}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.point}</td>
+                                        <td>:<input jsfc="h:inputText" id="pointCount"
+                                                    size="30" maxlength="50"
+                                                    value="#{points.points.pointCount}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.point_value}</td>
+                                        <td>:<input jsfc="h:inputText" id="pointValue"
+                                                    size="5" maxlength="5"
+                                                    value="#{points.points.pointValue}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><input id="submit" jsfc="h:commandButton"
+                                                   type="submit" value="#{msgs.create}"
+                                                   action="#{points.saveCreate}" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <h:messages globalOnly="true" style="color:red;"/>
                             </p>
                         </ui:define>
                     </ui:composition>

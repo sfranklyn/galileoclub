@@ -33,34 +33,34 @@
                         <ui:define name="body">
                             <h1>#{msgs.delete} #{msgs.news}</h1>
                             <p>
-                                <form id="news" jsfc="h:form">
-                                    <h:commandLink id="news"
-                                                   action="redirect:secure/news" value="#{msgs.news_maintenance}"/>
-                                </form><br/>
-                                <form id="newsDelete" jsfc="h:form">
-                                    <table>
-                                        <tr>
-                                            <td>#{msgs.news_date}</td>
-                                            <td>:#{news.news.newsDate}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="vertical-align:top">#{msgs.news_text}:</td>
-                                            <td><pre style="font-size:medium">#{news.news.newsText}</pre></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#{msgs.news_status}</td>
-                                            <td>:#{news.news.newsStatus}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td><input id="submit" jsfc="h:commandButton"
-                                                           type="submit" value="#{msgs.delete}"
-                                                           action="#{news.saveDelete}" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </form>
-                                <h:messages globalOnly="true" style="color:red;"/>
+                            <form id="news" jsfc="h:form">
+                                <h:commandLink id="news"
+                                               action="redirect:secure/news" value="#{msgs.news_maintenance}"/>
+                            </form><br/>
+                            <form id="newsDelete" jsfc="h:form">
+                                <table>
+                                    <tr>
+                                        <td>#{msgs.news_date}</td>
+                                        <td>:#{news.news.newsDate}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:top">#{msgs.news_text}:</td>
+                                        <td><pre style="font-size:medium">#{news.news.newsText}</pre></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#{msgs.news_status}</td>
+                                        <td>:#{news.news.newsStatus}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><input id="submit" jsfc="h:commandButton"
+                                                   type="submit" value="#{msgs.delete}"
+                                                   action="#{news.saveDelete}" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <h:messages globalOnly="true" style="color:red;"/>
                             </p>
                         </ui:define>
                     </ui:composition>

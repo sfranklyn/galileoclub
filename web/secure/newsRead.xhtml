@@ -33,24 +33,24 @@
                         <ui:define name="body">
                             <h1>#{msgs.read} #{msgs.news}</h1>
                             <p>
-                                <form id="news" jsfc="h:form">
-                                    <h:commandLink id="news"
-                                                   action="redirect:secure/news" value="#{msgs.news_maintenance}"/>
-                                </form><br/>
-                                <table>
-                                    <tr>
-                                        <td>#{msgs.news_date}</td>
-                                        <td>:#{news.news.newsDate}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="vertical-align:top">#{msgs.news_text}:</td>
-                                        <td><pre style="font-size:medium">#{news.news.newsText}</pre></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#{msgs.news_status}</td>
-                                        <td>:#{news.news.newsStatus}</td>
-                                    </tr>
-                                </table>
+                            <form id="news" jsfc="h:form">
+                                <h:commandLink id="news"
+                                               action="redirect:secure/news" value="#{msgs.news_maintenance}"/>
+                            </form><br/>
+                            <table>
+                                <tr>
+                                    <td>#{msgs.news_date}</td>
+                                    <td>:#{news.news.newsDate}</td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:top">#{msgs.news_text}:</td>
+                                    <td><pre style="font-size:medium">#{news.news.newsText}</pre></td>
+                                </tr>
+                                <tr>
+                                    <td>#{msgs.news_status}</td>
+                                    <td>:#{news.news.newsStatus}</td>
+                                </tr>
+                            </table>
                             </p>
                         </ui:define>
                     </ui:composition>

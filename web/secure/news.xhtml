@@ -7,80 +7,80 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
     <body>
-		<ui:composition template="/template.xhtml">
-			<ui:define name="body">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
 
-						<span class="title">#{msgs.news_maintenance}</span>
-						<p>
-							<form id="crud" jsfc="h:form">
-								<h:commandLink id="create"
-											   action="#{news.create}"
-											   value="#{msgs.create}"/>
-								<br/><br/>
-								<rich:dataTable id="data_table"
-												value="#{news.dataModel}"
-												rows="#{news.noOfRows}"
-												var="newsItem"
-												styleClass="dataTable"
-												headerClass="dataTableHeader"
-												columnClasses="dataTableColumn"
+            <span class="title">#{msgs.news_maintenance}</span>
+            <p>
+            <form id="crud" jsfc="h:form">
+                <h:commandLink id="create"
+                               action="#{news.create}"
+                               value="#{msgs.create}"/>
+                <br/><br/>
+                <rich:dataTable id="data_table"
+                                value="#{news.dataModel}"
+                                rows="#{news.noOfRows}"
+                                var="newsItem"
+                                styleClass="dataTable"
+                                headerClass="dataTableHeader"
+                                columnClasses="dataTableColumn"
+                                >
+                    <h:column id="news_date">
+                        <f:facet name="header">
+                            #{msgs.news_date}
+                        </f:facet>
+                        #{newsItem.newsDate}
+                    </h:column>
+                    <h:column id="news_text">
+                        <f:facet name="header">
+                            #{msgs.news_text}
+                        </f:facet>
+                        <pre style="font-family:sans-serif">
+                            #{newsItem.newsText}
+                        </pre>
+                    </h:column>
+                    <h:column id="action">
+                        <f:facet name="header">
+                            #{msgs.action}
+                        </f:facet>
+                        <h:commandLink id="readLink"
+                                       action="#{news.read}"
+                                       value="#{msgs.read}"/>&#160;
+                        <h:commandLink id="updateLink"
+                                       action="#{news.update}"
+                                       value="#{msgs.update}"/>&#160;
+                        <h:commandLink id="deleteLink"
+                                       action="#{news.delete}"
+                                       value="#{msgs.delete}"/>
+                    </h:column>
+                    <f:facet name="footer">
+                        <rich:datascroller id="scroll"
+                                           for="data_table"
+                                           fastStep="#{news.fastStep}"
+                                           tableStyleClass="paginator">
+                            <f:facet name="previous">
+                                &lt;
+                            </f:facet>
+                            <f:facet name="next">
 												>
-									<h:column id="news_date">
-										<f:facet name="header">
-											#{msgs.news_date}
-										</f:facet>
-										#{newsItem.newsDate}
-									</h:column>
-									<h:column id="news_text">
-										<f:facet name="header">
-											#{msgs.news_text}
-										</f:facet>
-										<pre style="font-family:sans-serif">
-#{newsItem.newsText}
-										</pre>
-									</h:column>
-									<h:column id="action">
-										<f:facet name="header">
-											#{msgs.action}
-										</f:facet>
-										<h:commandLink id="readLink"
-													   action="#{news.read}"
-													   value="#{msgs.read}"/>&#160;
-										<h:commandLink id="updateLink"
-													   action="#{news.update}"
-													   value="#{msgs.update}"/>&#160;
-										<h:commandLink id="deleteLink"
-													   action="#{news.delete}"
-													   value="#{msgs.delete}"/>
-									</h:column>
-									<f:facet name="footer">
-										<rich:datascroller id="scroll"
-														   for="data_table"
-														   fastStep="#{news.fastStep}"
-														   tableStyleClass="paginator">
-											<f:facet name="previous">
-												&lt;
-											</f:facet>
-											<f:facet name="next">
-												>
-											</f:facet>
-										</rich:datascroller>
-									</f:facet>
-								</rich:dataTable>
-							</form>
-						</p><br/>
+                            </f:facet>
+                        </rich:datascroller>
+                    </f:facet>
+                </rich:dataTable>
+            </form>
+            </p><br/>
 
-			</ui:define>
-		</ui:composition>
+        </ui:define>
+    </ui:composition>
 
-    </body>
+</body>
 </html>

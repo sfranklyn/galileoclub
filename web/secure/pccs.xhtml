@@ -6,99 +6,99 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
     <body>
-		<ui:composition template="/template.xhtml">
-			<ui:define name="body">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
 
-						<span class="title">#{msgs.pccs_maintenance}</span>
-						<p>
-							<form id="crud" jsfc="h:form">
-								#{msgs.pccs_pcc} :&#160;
-								<input jsfc="h:inputText" id="pccs_pcc"
-									   size="10" maxlength="6"
-									   value="#{pccs.pccs.pccsPcc}"/>&#160;
-								<input id="findByPcc" jsfc="h:commandButton"
-									   type="submit" value="#{msgs.find}"
-									   action="#{pccs.findByPcc}" /><br/>
-								<h:commandLink id="create"
-											   action="#{pccs.create}"
-											   value="#{msgs.create}"/>
-								<br/><br/>
-								<rich:dataTable id="data_table"
-											 value="#{pccs.dataModel}"
-											 rows="#{pccs.noOfRows}"
-											 var="pcc"
-											 styleClass="dataTable"
-											 headerClass="dataTableHeader"
-											 columnClasses="dataTableColumn"
-											 >
-									<h:column id="pccsId">
-										<f:facet name="header">
-											#{msgs.pccs_id}
-										</f:facet>
-										#{pcc.pccsId}
-									</h:column>
-									<h:column id="pccsPcc">
-										<f:facet name="header">
-											#{msgs.pccs_pcc}
-										</f:facet>
-										#{pcc.pccsPcc}
-									</h:column>
-									<h:column id="pccsDesc">
-										<f:facet name="header">
-											#{msgs.pccs_desc}
-										</f:facet>
-										#{pcc.pccsDesc}
-									</h:column>
-									<h:column id="action">
-										<f:facet name="header">
-											#{msgs.action}
-										</f:facet>
-										<h:commandLink id="readLink"
-													   action="#{pccs.read}"
-													   value="#{msgs.read}"/>&#160;
-										<h:commandLink id="updateLink"
-													   action="#{pccs.update}"
-													   value="#{msgs.update}"/>&#160;
-										<h:commandLink id="deleteLink"
-													   action="#{pccs.delete}"
-													   value="#{msgs.delete}"/>
-									</h:column>
-									<f:facet name="footer">
-										<rich:datascroller id="scroll"
-														   for="data_table"
-														   fastStep="#{pccs.fastStep}"
-														   tableStyleClass="paginator">
-											<f:facet name="previous">
-												&lt;
-											</f:facet>
-											<f:facet name="next">
+            <span class="title">#{msgs.pccs_maintenance}</span>
+            <p>
+            <form id="crud" jsfc="h:form">
+                #{msgs.pccs_pcc} :&#160;
+                <input jsfc="h:inputText" id="pccs_pcc"
+                       size="10" maxlength="6"
+                       value="#{pccs.pccs.pccsPcc}"/>&#160;
+                <input id="findByPcc" jsfc="h:commandButton"
+                       type="submit" value="#{msgs.find}"
+                       action="#{pccs.findByPcc}" /><br/>
+                <h:commandLink id="create"
+                               action="#{pccs.create}"
+                               value="#{msgs.create}"/>
+                <br/><br/>
+                <rich:dataTable id="data_table"
+                                value="#{pccs.dataModel}"
+                                rows="#{pccs.noOfRows}"
+                                var="pcc"
+                                styleClass="dataTable"
+                                headerClass="dataTableHeader"
+                                columnClasses="dataTableColumn"
+                                >
+                    <h:column id="pccsId">
+                        <f:facet name="header">
+                            #{msgs.pccs_id}
+                        </f:facet>
+                        #{pcc.pccsId}
+                    </h:column>
+                    <h:column id="pccsPcc">
+                        <f:facet name="header">
+                            #{msgs.pccs_pcc}
+                        </f:facet>
+                        #{pcc.pccsPcc}
+                    </h:column>
+                    <h:column id="pccsDesc">
+                        <f:facet name="header">
+                            #{msgs.pccs_desc}
+                        </f:facet>
+                        #{pcc.pccsDesc}
+                    </h:column>
+                    <h:column id="action">
+                        <f:facet name="header">
+                            #{msgs.action}
+                        </f:facet>
+                        <h:commandLink id="readLink"
+                                       action="#{pccs.read}"
+                                       value="#{msgs.read}"/>&#160;
+                        <h:commandLink id="updateLink"
+                                       action="#{pccs.update}"
+                                       value="#{msgs.update}"/>&#160;
+                        <h:commandLink id="deleteLink"
+                                       action="#{pccs.delete}"
+                                       value="#{msgs.delete}"/>
+                    </h:column>
+                    <f:facet name="footer">
+                        <rich:datascroller id="scroll"
+                                           for="data_table"
+                                           fastStep="#{pccs.fastStep}"
+                                           tableStyleClass="paginator">
+                            <f:facet name="previous">
+                                &lt;
+                            </f:facet>
+                            <f:facet name="next">
 												>
-											</f:facet>
-										</rich:datascroller>
-									</f:facet>
-								</rich:dataTable><br/><br/>
-								<input id="createPccs" jsfc="h:commandButton"
-									   type="submit" value="#{msgs.create_pccs}"
-									   class="submit_btn"
-									   action="#{pccs.createPccs}" />&#160;&#160;
-								<input id="countSegment" jsfc="h:commandButton"
-									   type="submit" value="#{msgs.count_segment}"
-									   class="submit_btn"
-									   action="#{pccs.countSegment}" />
-								<br/>
-							</form>
-						</p><br/>
+                            </f:facet>
+                        </rich:datascroller>
+                    </f:facet>
+                </rich:dataTable><br/><br/>
+                <input id="createPccs" jsfc="h:commandButton"
+                       type="submit" value="#{msgs.create_pccs}"
+                       class="submit_btnlong"
+                       action="#{pccs.createPccs}" />&#160;&#160;
+                <input id="countSegment" jsfc="h:commandButton"
+                       type="submit" value="#{msgs.count_segment}"
+                       class="submit_btnlong"
+                       action="#{pccs.countSegment}" />
+                <br/>
+            </form>
+            </p><br/>
 
-			</ui:define>
-		</ui:composition>
-    </body>
+        </ui:define>
+    </ui:composition>
+</body>
 </html>

@@ -6,63 +6,63 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
     <body>
-		<ui:composition template="/template.xhtml">
-			<ui:define name="body">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
 
-						<form id="newClaim" jsfc="h:form">
-							<rich:dataTable id="data_table"
-										 value="#{users.dataModelNewClaim}"
-										 var="claim"
-										 styleClass="dataTable"
-										 headerClass="dataTableHeader"
-										 columnClasses="dataTableColumn"
-										 >
-								<h:column id="claimId">
-									<f:facet name="header">
-										#{msgs.claim_id}
-									</f:facet>
-									#{claim.claimId}
-								</h:column>
-								<h:column id="claimDate">
-									<f:facet name="header">
-										#{msgs.date}
-									</f:facet>
-									#{claim.claimDateFormatted}
-								</h:column>
-								<h:column id="claimUserCode">
-									<f:facet name="header">
-										#{msgs.user_code}
-									</f:facet>
-									#{claim.claimUserCode}
-								</h:column>
-								<h:column id="fullName">
-									<f:facet name="header">
-										#{msgs.full_name}
-									</f:facet>
-									#{claim.fullName}
-								</h:column>
-								<h:column id="confirm_reject">
-									<f:facet name="header">
-										#{msgs.process}
-									</f:facet>
-									<h:commandButton id="newClaimProcess"
-													 action="#{users.newClaimProcess}"
-													 value="#{msgs.process}"
-													 />
-								</h:column>
-							</rich:dataTable>
-						</form><br/><br/>
+            <form id="newClaim" jsfc="h:form">
+                <rich:dataTable id="data_table"
+                                value="#{users.dataModelNewClaim}"
+                                var="claim"
+                                styleClass="dataTable"
+                                headerClass="dataTableHeader"
+                                columnClasses="dataTableColumn"
+                                >
+                    <h:column id="claimId">
+                        <f:facet name="header">
+                            #{msgs.claim_id}
+                        </f:facet>
+                        #{claim.claimId}
+                    </h:column>
+                    <h:column id="claimDate">
+                        <f:facet name="header">
+                            #{msgs.date}
+                        </f:facet>
+                        #{claim.claimDateFormatted}
+                    </h:column>
+                    <h:column id="claimUserCode">
+                        <f:facet name="header">
+                            #{msgs.user_code}
+                        </f:facet>
+                        #{claim.claimUserCode}
+                    </h:column>
+                    <h:column id="fullName">
+                        <f:facet name="header">
+                            #{msgs.full_name}
+                        </f:facet>
+                        #{claim.fullName}
+                    </h:column>
+                    <h:column id="confirm_reject">
+                        <f:facet name="header">
+                            #{msgs.process}
+                        </f:facet>
+                        <h:commandButton id="newClaimProcess"
+                                         action="#{users.newClaimProcess}"
+                                         value="#{msgs.process}"
+                                         />
+                    </h:column>
+                </rich:dataTable>
+            </form><br/><br/>
 
-			</ui:define>
-		</ui:composition>
-    </body>
+        </ui:define>
+    </ui:composition>
+</body>
 </html>

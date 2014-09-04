@@ -20,8 +20,6 @@ create table users (
     user_birthday date,
     user_pcc varchar(10),
     user_son varchar(10),
-    user_pcc1 varchar(10),
-    user_son1 varchar(10),
     user_agentname varchar(50),
     user_office_address1 varchar(50),
     user_office_address2 varchar(50),

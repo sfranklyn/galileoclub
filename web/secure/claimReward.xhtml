@@ -6,74 +6,74 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
-<body>
-	<ui:composition template="/template.xhtml">
-		<ui:define name="body">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
 
-					<form id="claimReward" jsfc="h:form">
-						<table width="95%" height="100%" border="0" cellspacing="0" cellpadding="2" align="left">
-							<tr>
-								<td colspan="3"><span class="title">#{msgs.claim_data}</span></td>
-							</tr>
-							<tr>
-								<td colspan="2"><p><img src="../images/material/h_separ.jpg" /></p></td>
-							</tr>
-							<tr>
-								<td width="169" valign="top">#{msgs.galileo_club_member_id}</td>
-								<td width="378">#{users.claims.claimUserCode}<br/> </td>
-							</tr>
-							<tr>
-								<td colspan="3" height="8" ></td>
-							</tr>
-							<tr>
-								<td valign="top">#{msgs.remaining_point}</td>
-								<td>#{visit.pointCount}</td>
-							</tr>
-							<tr>
-								<td colspan="3" height="8" ></td>
-							</tr>
-							<tr>
-								<td width="169">#{msgs.date}</td>
-								<td>#{users.claimDate}</td>
-							</tr>
-							<tr>
-								<td colspan="3" height="8" ></td>
-							</tr>
-							<tr>
-								<td width="169" valign="top">#{msgs.claim_desc}</td>
-								<td valign="top">#{msgs.claim_reward_help}<br/><br/>
-									<textarea jsfc="h:inputTextarea" id="claimDesc"
-											  cols="25" rows="5" MaxLength="255"
-											  style="width:300px;" value="#{users.claims.claimDesc}" />
+            <form id="claimReward" jsfc="h:form">
+                <table width="95%" height="100%" border="0" cellspacing="0" cellpadding="2" align="left">
+                    <tr>
+                        <td colspan="3"><span class="title">#{msgs.claim_data}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><p><img src="../images/material/h_separ.jpg" /></p></td>
+                    </tr>
+                    <tr>
+                        <td width="169" valign="top">#{msgs.galileo_club_member_id}</td>
+                        <td width="378">#{users.claims.claimUserCode}<br/> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" height="8" ></td>
+                    </tr>
+                    <tr>
+                        <td valign="top">#{msgs.remaining_point}</td>
+                        <td>#{visit.pointCount}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" height="8" ></td>
+                    </tr>
+                    <tr>
+                        <td width="169">#{msgs.date}</td>
+                        <td>#{users.claimDate}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" height="8" ></td>
+                    </tr>
+                    <tr>
+                        <td width="169" valign="top">#{msgs.claim_desc}</td>
+                        <td valign="top">#{msgs.claim_reward_help}<br/><br/>
+                            <textarea jsfc="h:inputTextarea" id="claimDesc"
+                                      cols="25" rows="5" MaxLength="255"
+                                      style="width:300px;" value="#{users.claims.claimDesc}" />
 
-								</td>
-							</tr>
-							<tr>
-								<td width="169">&#160;</td>
-								<td><br/><input id="update" jsfc="h:commandButton"
-													type="submit" value="#{msgs.request}"
-													class="submit_btn"
-													action="#{users.saveClaimReward}" />&#160;
-									<input id="cancel" jsfc="h:commandButton"
-										   type="submit" value="#{msgs.cancel}"
-										   class="submit_btn"
-										   action="#{users.cancelClaimReward}" />
-									<br/><br/>
-								</td>
-							</tr>
-						</table>
-						<h:messages globalOnly="true"/>
-					</form>
-		
-		</ui:define>
-	</ui:composition>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="169">&#160;</td>
+                        <td><br/><input id="update" jsfc="h:commandButton"
+                                        type="submit" value="#{msgs.request}"
+                                        class="submit_btn"
+                                        action="#{users.saveClaimReward}" />&#160;
+                            <input id="cancel" jsfc="h:commandButton"
+                                   type="submit" value="#{msgs.cancel}"
+                                   class="submit_btn"
+                                   action="#{users.cancelClaimReward}" />
+                            <br/><br/>
+                        </td>
+                    </tr>
+                </table>
+                <h:messages globalOnly="true"/>
+            </form>
+
+        </ui:define>
+    </ui:composition>
 </body>
 </html>

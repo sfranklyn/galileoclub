@@ -6,144 +6,144 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
-<body>
-	<ui:composition template="/template.xhtml">
-		<ui:define name="body">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
 
-					<span class="title">#{msgs.users_maintenance}</span>
-					<p>
-						<form id="crud" jsfc="h:form">
-							<h:messages globalOnly="true" style="color:red;"/>
-							#{msgs.pccs_pcc} :&#160;
-							<input jsfc="h:inputText" id="userPcc"
-								   size="4" maxlength="4"
-								   value="#{users.userPcc}"/>&#160;
-							<input id="findByPcc" jsfc="h:commandButton"
-								   class="submit_btn"
-								   type="submit" value="#{msgs.find}"
-								   action="#{users.findByPcc}" /><br/><br/>
-							#{msgs.full_name} :&#160;
-							<input jsfc="h:inputText" id="fullName"
-								   size="30" maxlength="50"
-								   value="#{users.userFullName}"/>&#160;
-							<input id="findByFullName" jsfc="h:commandButton"
-								   type="submit" value="#{msgs.find}"
-								   class="submit_btn"
-								   action="#{users.findByFullName}" /><br/><br/>
-							#{msgs.user_code} :&#160;
-							<input jsfc="h:inputText" id="userCode"
-								   size="12" maxlength="12"
-								   value="#{users.userCode}"/>&#160;
-							<input id="findByUserCode" jsfc="h:commandButton"
-								   type="submit" value="#{msgs.find}"
-								   class="submit_btn"
-								   action="#{users.findByUserCode}" />&#160;&#160;
-							<br/><br/>
-							<h:commandLink id="create"
-										   action="#{users.create}"
-										   value="#{msgs.create}"/>&#160;&#160;
-							<h:commandLink id="setValue"
-										   action="#{users.setValue}"
-										   value="#{msgs.set_value}"/>
-							<br/><br/>
-							<rich:dataTable id="data_table"
-										 value="#{users.dataModel}"
-										 rows="#{users.noOfRows}"
-										 var="user"
-										 styleClass="dataTable"
-										 headerClass="dataTableHeader"
-										 columnClasses="dataTableColumn"
-										 >
-								<h:column id="idx">
-									<f:facet name="header">
+            <span class="title">#{msgs.users_maintenance}</span>
+            <p>
+            <form id="crud" jsfc="h:form">
+                <h:messages globalOnly="true" style="color:red;"/>
+                #{msgs.pccs_pcc} :&#160;
+                <input jsfc="h:inputText" id="userPcc"
+                       size="4" maxlength="4"
+                       value="#{users.userPcc}"/>&#160;
+                <input id="findByPcc" jsfc="h:commandButton"
+                       class="submit_btn"
+                       type="submit" value="#{msgs.find}"
+                       action="#{users.findByPcc}" /><br/><br/>
+                #{msgs.full_name} :&#160;
+                <input jsfc="h:inputText" id="fullName"
+                       size="30" maxlength="50"
+                       value="#{users.userFullName}"/>&#160;
+                <input id="findByFullName" jsfc="h:commandButton"
+                       type="submit" value="#{msgs.find}"
+                       class="submit_btn"
+                       action="#{users.findByFullName}" /><br/><br/>
+                #{msgs.user_code} :&#160;
+                <input jsfc="h:inputText" id="userCode"
+                       size="12" maxlength="12"
+                       value="#{users.userCode}"/>&#160;
+                <input id="findByUserCode" jsfc="h:commandButton"
+                       type="submit" value="#{msgs.find}"
+                       class="submit_btn"
+                       action="#{users.findByUserCode}" />&#160;&#160;
+                <br/><br/>
+                <h:commandLink id="create"
+                               action="#{users.create}"
+                               value="#{msgs.create}"/>&#160;&#160;
+                <h:commandLink id="setValue"
+                               action="#{users.setValue}"
+                               value="#{msgs.set_value}"/>
+                <br/><br/>
+                <rich:dataTable id="data_table"
+                                value="#{users.dataModel}"
+                                rows="#{users.noOfRows}"
+                                var="user"
+                                styleClass="dataTable"
+                                headerClass="dataTableHeader"
+                                columnClasses="dataTableColumn"
+                                >
+                    <h:column id="idx">
+                        <f:facet name="header">
 										No
-									</f:facet>
-									#{users.dataModel.rowIndex+1}
-								</h:column>
-								<h:column id="user_code">
-									<f:facet name="header">
-										#{msgs.user_code}
-									</f:facet>
-									#{user.userCode}
-								</h:column>
-								<h:column id="user_name">
-									<f:facet name="header">
-										#{msgs.user_name}
-									</f:facet>
-									#{user.userName}
-								</h:column>
-								<h:column id="full_name_user_email">
-									<f:facet name="header">
-										#{msgs.full_name} &amp;
-										#{msgs.user_email}                                                
-									</f:facet>
-									#{user.fullName}<br/>
-									#{user.userEmail}
-								</h:column>
-								<h:column id="user_pcc">
-									<f:facet name="header">
-										#{msgs.user_pcc}
-									</f:facet>
-									#{user.userPcc}
-								</h:column>
-								<h:column id="user_son">
-									<f:facet name="header">
-										#{msgs.user_son}
-									</f:facet>
-									#{user.userSon}
-								</h:column>
-								<h:column id="action">
-									<f:facet name="header">
-										#{msgs.action}
-									</f:facet>
-									<h:commandLink id="readLink"
-												   action="#{users.read}"
-												   value="#{msgs.read}"/>&#160;
-									<h:commandLink id="updateLink"
-												   action="#{users.update}"
-												   value="#{msgs.update}"/>&#160;
-									<h:commandLink id="deleteLink"
-												   action="#{users.delete}"
-												   value="#{msgs.delete}"/><br/>
-									<h:commandLink id="pointsMaintenanceLink"
-												   action="#{points.read}"
-												   value="#{msgs.points_maintenance}"
-												   rendered="#{user.userCode ne null}"/><br/>
-									<h:commandLink id="claimsMaintenanceLink"
-												   action="#{claims.read}"
-												   value="#{msgs.claims_maintenance}"
-												   rendered="#{user.userCode ne null}"/><br/>
-									<h:commandLink id="transferPointLink"
-												   action="#{users.transferToPoint}"
-												   value="#{msgs.transferToPoint}"
-												   rendered="#{user.userCode ne null}"/>
-								</h:column>
-								<f:facet name="footer">
-									<rich:datascroller id="scroll"
-													   for="data_table"
-													   fastStep="#{users.fastStep}"
-													   tableStyleClass="paginator">
-										<f:facet name="previous">
-											&lt;
-										</f:facet>
-										<f:facet name="next">
+                        </f:facet>
+                        #{users.dataModel.rowIndex+1}
+                    </h:column>
+                    <h:column id="user_code">
+                        <f:facet name="header">
+                            #{msgs.user_code}
+                        </f:facet>
+                        #{user.userCode}
+                    </h:column>
+                    <h:column id="user_name">
+                        <f:facet name="header">
+                            #{msgs.user_name}
+                        </f:facet>
+                        #{user.userName}
+                    </h:column>
+                    <h:column id="full_name_user_email">
+                        <f:facet name="header">
+                            #{msgs.full_name} &amp;
+                            #{msgs.user_email}
+                        </f:facet>
+                        #{user.fullName}<br/>
+                        #{user.userEmail}
+                    </h:column>
+                    <h:column id="user_pcc">
+                        <f:facet name="header">
+                            #{msgs.user_pcc}
+                        </f:facet>
+                        #{user.userPcc}
+                    </h:column>
+                    <h:column id="user_son">
+                        <f:facet name="header">
+                            #{msgs.user_son}
+                        </f:facet>
+                        #{user.userSon}
+                    </h:column>
+                    <h:column id="action">
+                        <f:facet name="header">
+                            #{msgs.action}
+                        </f:facet>
+                        <h:commandLink id="readLink"
+                                       action="#{users.read}"
+                                       value="#{msgs.read}"/>&#160;
+                        <h:commandLink id="updateLink"
+                                       action="#{users.update}"
+                                       value="#{msgs.update}"/>&#160;
+                        <h:commandLink id="deleteLink"
+                                       action="#{users.delete}"
+                                       value="#{msgs.delete}"/><br/>
+                        <h:commandLink id="pointsMaintenanceLink"
+                                       action="#{points.read}"
+                                       value="#{msgs.points_maintenance}"
+                                       rendered="#{user.userCode ne null}"/><br/>
+                        <h:commandLink id="claimsMaintenanceLink"
+                                       action="#{claims.read}"
+                                       value="#{msgs.claims_maintenance}"
+                                       rendered="#{user.userCode ne null}"/><br/>
+                        <h:commandLink id="transferPointLink"
+                                       action="#{users.transferToPoint}"
+                                       value="#{msgs.transferToPoint}"
+                                       rendered="#{user.userCode ne null}"/>
+                    </h:column>
+                    <f:facet name="footer">
+                        <rich:datascroller id="scroll"
+                                           for="data_table"
+                                           fastStep="#{users.fastStep}"
+                                           tableStyleClass="paginator">
+                            <f:facet name="previous">
+                                &lt;
+                            </f:facet>
+                            <f:facet name="next">
 											>
-										</f:facet>
-									</rich:datascroller>
-								</f:facet>
-							</rich:dataTable>
-						</form>
-					</p><br/>
+                            </f:facet>
+                        </rich:datascroller>
+                    </f:facet>
+                </rich:dataTable>
+            </form>
+            </p><br/>
 
-		</ui:define>
-	</ui:composition>
+        </ui:define>
+    </ui:composition>
 </body>
 </html>

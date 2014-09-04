@@ -6,129 +6,129 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Galileo Club" />
-	<meta name="keywords" content="galileo,indonesia,club" />
-	<meta name="author" content="Samuel Franklyn" />
-	<link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
-	<title>Galileo Club</title>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
     <body>
-		<ui:composition template="/template.xhtml">
-			<ui:define name="body">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
 
-						<span class="title">#{msgs.new_member_profile}</span>
-						<p>
-							<form id="newMemberVerification" jsfc="h:form">
-								<table align="center" cellpadding="2"
-									   cellspacing="1" class="body">
-									<tr>
-										<td colspan="2" bgcolor="f0f0f0"></td>
-									</tr>
-									<tr>
-										<td colspan="2"><b><br/>
-										#{msgs.login_data}</b></td>
-									</tr>
-									<tr>
-										<td colspan="2" style="height:0.3em; background-color:#999999"></td>
-									</tr>
-									<tr>
-										<td style="padding-top:0.5em;">#{msgs.user_name} </td>
-										<td style="padding-top:0.5em;">#{users.users.userName}</td>
-									</tr>
-									<tr>
-										<td><b>#{msgs.personal_data}</b></td>
-										<td>&#160;</td>
-									</tr>
-									<tr>
-										<td colspan="2" style="height:0.3em; background-color:#999999;"></td>
-									</tr>
-									<tr>
-										<td style="padding-top:0.5em;">#{msgs.full_name} </td>
-										<td style="padding-top:0.5em;">#{users.users.fullName}</td>
-									</tr>
-									<tr>
-										<td>#{msgs.user_email} </td>
-										<td>#{users.users.userEmail}</td>
-									</tr>
-									<tr>
-										<td>#{msgs.user_birthday} </td>
-										<td>#{users.users.userBirthday}</td>
-									</tr>
-									<tr>
-										<td>#{msgs.user_mobile_phone} <br/><br/></td>
-										<td>#{users.users.userMobilePhone}<br/><br/></td>
-									</tr>
-									<tr>
-										<td colspan="2"><b>#{msgs.company_data}</b></td>
-									</tr>
-									<tr>
-										<td colspan="2" style="height:0.3em; background-color:#999999"></td>
-									</tr>
-									<tr>
-										<td style="padding-top:0.5em;">#{msgs.user_agentname}&#160;&#160;&#160;&#160;</td>
-										<td style="padding-top:0.5em;">#{users.users.userAgentName}</td>
-									</tr>
-									<tr>
-										<td>#{msgs.user_office_address} </td>
-										<td>#{users.users.userOfficeAddress1}</td>
-									</tr>
-									<tr>
-										<td>&#160;</td>
-										<td>#{users.users.userOfficeAddress2}</td>
-									</tr>
-									<tr>
-										<td>&#160;</td>
-										<td>#{users.users.userOfficeAddress3}</td>
-									</tr>
-									<tr>
-										<td>#{msgs.user_office_city} </td>
-										<td>#{users.users.userOfficeCity}
-											&#160;#{msgs.user_office_zip}&#160;&#160;
-										#{users.users.userOfficeZip}</td>
-									</tr>
-									<tr>
-										<td>#{msgs.user_office_phone} </td>
-										<td>#{users.users.userOfficePhone}
-											&#160;&#160;#{msgs.user_office_ext}&#160;
-										#{users.users.userOfficeExt}</td>
-									</tr>
-									<tr>
-										<td>#{msgs.user_office_fax} <br/><br/></td>
-										<td>#{users.users.userOfficeFax}<br/><br/></td>
-									</tr>
-									<tr>
-										<td colspan="2"><b>Data Sign On</b></td>
-									</tr>
-									<tr>
-										<td colspan="3" style="height:0.3em; background-color:#999999"></td>
-									</tr>
-									<tr>
-										<td style="padding-top:0.5em;" colspan="2">PCC: #{users.users.userPcc}
-											&#160;&#160;SON: Z#{users.users.userSon}
-										</td>
-									</tr>
-									<tr>
-										<td colspan="3"><input id="activate" jsfc="h:commandButton"
-													   type="submit" value="#{msgs.activate}"
-													   action="#{users.newMemberActivate}" />
-										&#160;&#160;
-										<input id="reject" jsfc="h:commandButton"
-													   type="submit" value="#{msgs.reject}"
-													   action="#{users.newMemberReject}" />
-										&#160;&#160;
-										<input id="newMember" jsfc="h:commandButton"
-													   type="submit" value="#{msgs.cancel}"
-													   action="newMember" />
-										</td>
-									</tr>
-								</table>
-							</form>
-							<h:messages globalOnly="true" style="color:red;"/>
-						</p>
+            <span class="title">#{msgs.new_member_profile}</span>
+            <p>
+            <form id="newMemberVerification" jsfc="h:form">
+                <table align="center" cellpadding="2"
+                       cellspacing="1" class="body">
+                    <tr>
+                        <td colspan="2" bgcolor="f0f0f0"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><b><br/>
+                                #{msgs.login_data}</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height:0.3em; background-color:#999999"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:0.5em;">#{msgs.user_name} </td>
+                        <td style="padding-top:0.5em;">#{users.users.userName}</td>
+                    </tr>
+                    <tr>
+                        <td><b>#{msgs.personal_data}</b></td>
+                        <td>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height:0.3em; background-color:#999999;"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:0.5em;">#{msgs.full_name} </td>
+                        <td style="padding-top:0.5em;">#{users.users.fullName}</td>
+                    </tr>
+                    <tr>
+                        <td>#{msgs.user_email} </td>
+                        <td>#{users.users.userEmail}</td>
+                    </tr>
+                    <tr>
+                        <td>#{msgs.user_birthday} </td>
+                        <td>#{users.users.userBirthday}</td>
+                    </tr>
+                    <tr>
+                        <td>#{msgs.user_mobile_phone} <br/><br/></td>
+                        <td>#{users.users.userMobilePhone}<br/><br/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><b>#{msgs.company_data}</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height:0.3em; background-color:#999999"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:0.5em;">#{msgs.user_agentname}&#160;&#160;&#160;&#160;</td>
+                        <td style="padding-top:0.5em;">#{users.users.userAgentName}</td>
+                    </tr>
+                    <tr>
+                        <td>#{msgs.user_office_address} </td>
+                        <td>#{users.users.userOfficeAddress1}</td>
+                    </tr>
+                    <tr>
+                        <td>&#160;</td>
+                        <td>#{users.users.userOfficeAddress2}</td>
+                    </tr>
+                    <tr>
+                        <td>&#160;</td>
+                        <td>#{users.users.userOfficeAddress3}</td>
+                    </tr>
+                    <tr>
+                        <td>#{msgs.user_office_city} </td>
+                        <td>#{users.users.userOfficeCity}
+                            &#160;#{msgs.user_office_zip}&#160;&#160;
+                            #{users.users.userOfficeZip}</td>
+                    </tr>
+                    <tr>
+                        <td>#{msgs.user_office_phone} </td>
+                        <td>#{users.users.userOfficePhone}
+                            &#160;&#160;#{msgs.user_office_ext}&#160;
+                            #{users.users.userOfficeExt}</td>
+                    </tr>
+                    <tr>
+                        <td>#{msgs.user_office_fax} <br/><br/></td>
+                        <td>#{users.users.userOfficeFax}<br/><br/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><b>Data Sign On</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height:0.3em; background-color:#999999"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:0.5em;" colspan="2">PCC: #{users.users.userPcc}
+                            &#160;&#160;SON: Z#{users.users.userSon}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input id="activate" jsfc="h:commandButton"
+                                               type="submit" value="#{msgs.activate}"
+                                               action="#{users.newMemberActivate}" />
+                            &#160;&#160;
+                            <input id="reject" jsfc="h:commandButton"
+                                   type="submit" value="#{msgs.reject}"
+                                   action="#{users.newMemberReject}" />
+                            &#160;&#160;
+                            <input id="newMember" jsfc="h:commandButton"
+                                   type="submit" value="#{msgs.cancel}"
+                                   action="newMember" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <h:messages globalOnly="true" style="color:red;"/>
+            </p>
 
-			</ui:define>
-		</ui:composition>
-    </body>
+        </ui:define>
+    </ui:composition>
+</body>
 </html>
