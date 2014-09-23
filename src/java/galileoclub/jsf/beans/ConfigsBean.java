@@ -41,9 +41,9 @@ public class ConfigsBean {
     private PropertyResourceBundle messageSource = null;
     private VisitBean visit = null;
     @EJB
-    private ConfigsDataModelRemote configsDataModelRemote = null;
+    private ConfigsDataModelRemote configsDataModelRemote;
     @EJB
-    private ConfigsServiceRemote configsServiceRemote = null;
+    private ConfigsServiceRemote configsServiceRemote;
 
     private void reschedule() {
         if (configs.getConfigKey().equals(ConfigsServiceBean.SEGCOUNT_TIME)) {

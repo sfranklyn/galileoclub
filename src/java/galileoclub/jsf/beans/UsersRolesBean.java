@@ -40,19 +40,20 @@ public class UsersRolesBean {
     private final DatabaseDataModel dataModel = new DatabaseDataModel();
     private UsersRoles usersRoles = null;
     private VisitBean visit = null;
-    private UsersRolesDataModelRemote usersRolesDataModelRemote = null;
     @EJB
-    private UsersDataModelRemote usersDataModelRemote = null;
+    private UsersRolesDataModelRemote usersRolesDataModelRemote;
     @EJB
-    private UsersDaoRemote usersDaoRemote = null;
+    private UsersDataModelRemote usersDataModelRemote;
     @EJB
-    private RolesDaoRemote rolesDaoRemote = null;
+    private UsersDaoRemote usersDaoRemote;
     @EJB
-    private UsersRolesDaoRemote usersRolesDaoRemote = null;
+    private RolesDaoRemote rolesDaoRemote;
     @EJB
-    private RolesDataModelRemote rolesDataModelRemote = null;
+    private UsersRolesDaoRemote usersRolesDaoRemote;
     @EJB
-    private UsersRolesServiceRemote usersRolesServiceRemote = null;
+    private RolesDataModelRemote rolesDataModelRemote;
+    @EJB
+    private UsersRolesServiceRemote usersRolesServiceRemote;
 
     public Integer getNoOfRows() {
         return noOfRows;

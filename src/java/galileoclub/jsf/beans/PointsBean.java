@@ -11,11 +11,7 @@ import galileoclub.ejb.datamodel.PnrcountsDataModelRemote;
 import galileoclub.ejb.service.PointsServiceRemote;
 import galileoclub.jpa.Points;
 import galileoclub.jpa.Users;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PropertyResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -26,18 +22,11 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFDataFormat;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFHeader;
-import org.apache.poi.hssf.usermodel.HSSFRichTextString;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.*;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+
 
 /**
  *
@@ -60,11 +49,11 @@ public class PointsBean {
     private Boolean pointAscending = null;
     private String response = null;
     @EJB
-    private PointsDaoRemote pointsDaoRemote = null;
+    private PointsDaoRemote pointsDaoRemote;
     @EJB
-    private PnrcountsDataModelRemote pnrcountsDataModelRemote = null;
+    private PnrcountsDataModelRemote pnrcountsDataModelRemote;
     @EJB
-    private PointsServiceRemote pointsServiceRemote = null;
+    private PointsServiceRemote pointsServiceRemote;
 
     @SuppressWarnings("unchecked")
     public String pointReport() {
@@ -137,6 +126,11 @@ public class PointsBean {
         users = (Users) usersBean.getDataModel().getRowData();
         readPoints();
         usersBean.setUsers(users);
+        return "redirect:secure/points";
+    }
+
+    public String readPrev() {
+        readPoints();
         return "redirect:secure/points";
     }
 
@@ -258,11 +252,11 @@ public class PointsBean {
 
             String contentType = "application/vnd.ms-excel";
             FacesContext fc = FacesContext.getCurrentInstance();
-            HttpServletResponse response = (HttpServletResponse) fc.getExternalContext().getResponse();
+            HttpServletResponse httpResponse = (HttpServletResponse) fc.getExternalContext().getResponse();
             filename = filename + ".xls";
-            response.setHeader("Content-disposition", "attachment; filename=" + filename);
-            response.setContentType(contentType);
-            out = response.getOutputStream();
+            httpResponse.setHeader("Content-disposition", "attachment; filename=" + filename);
+            httpResponse.setContentType(contentType);
+            out = httpResponse.getOutputStream();
 
             HSSFFont boldFont = wb.createFont();
             boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);

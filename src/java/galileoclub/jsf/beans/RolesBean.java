@@ -32,9 +32,9 @@ public class RolesBean {
     private PropertyResourceBundle messageSource = null;
     private VisitBean visit = null;
     @EJB
-    private RolesDataModelRemote rolesDataModelRemote = null;
+    private RolesDataModelRemote rolesDataModelRemote;
     @EJB
-    private RolesServiceRemote rolesServiceRemote = null;
+    private RolesServiceRemote rolesServiceRemote;
 
     public Integer getNoOfRows() {
         return noOfRows;

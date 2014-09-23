@@ -37,9 +37,9 @@ public class PccsBean {
     private VisitBean visit = null;
     private PccsDataModelRemote pccsDataModelRemote = null;
     @EJB
-    private PccsServiceRemote pccsServiceRemote = null;
+    private PccsServiceRemote pccsServiceRemote;
     @EJB
-    private SegmentCounterServiceRemote segmentCounterServiceRemote = null;
+    private SegmentCounterServiceRemote segmentCounterServiceRemote;
 
     public String create() {
         pccs = new Pccs();

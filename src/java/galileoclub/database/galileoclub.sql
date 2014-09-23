@@ -1,6 +1,7 @@
 drop table if exists urls_roles;
 drop table if exists users_roles;
 drop table if exists news;
+drop table if exists users_pccs;
 drop table if exists users;
 drop table if exists roles;
 drop table if exists configs;
@@ -99,6 +100,18 @@ create table pccs (
     pccs_version int not null default 0,
     constraint primary key (pccs_id),
     constraint nk_pccs unique (pccs_pcc)
+);
+
+create table users_pccs (
+    user_id int not null,
+    pccs_id int not null,
+    user_pcc_son varchar(10) not null,
+    user_pcc_version int not null default 0,
+    primary key (user_id,pccs_id),
+    constraint fk_users_pccs1 foreign key (user_id) references users (user_id),
+    constraint fk_users_pccs2 foreign key (pccs_id) references pccs (pccs_id),
+    index idx_users_pccs1 (user_id),
+    index idx_users_pccs2 (pccs_id)
 );
 
 create table pnrs (

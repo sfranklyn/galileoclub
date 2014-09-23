@@ -33,9 +33,9 @@ public class NewsBean {
     private PropertyResourceBundle messageSource = null;
     private VisitBean visit = null;
     @EJB
-    private NewsDataModelRemote newsDataModelRemote = null;
+    private NewsDataModelRemote newsDataModelRemote;
     @EJB
-    private NewsServiceRemote newsServiceRemote = null;
+    private NewsServiceRemote newsServiceRemote;
 
     public String create() {
         news = new News();

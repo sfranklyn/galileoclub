@@ -1,8 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:rich="http://richfaces.org/rich"
-      xmlns:c="http://java.sun.com/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
@@ -17,33 +14,37 @@
     <body>
         <ui:composition template="/template.xhtml">
             <ui:define name="body">
-                <span class="title">#{msgs.create} Role</span>
+
+                <span class="title">#{msgs.create} #{msgs.user_pcc}</span>
                 <p>
-                    <form id="roles" jsfc="h:form">
-                        <h:commandLink id="roles"
-                                       action="redirect:secure/roles" value="#{msgs.roles_maintenance}"/>
+                    <form id="usersPccsForm" jsfc="h:form">
+                        <h:commandLink id="usersPccsLink"
+                                       action="redirect:secure/usersPccs" value="#{msgs.users_pccs_maintenance}"/>
                     </form><br/>
-                    <form id="rolesCreate" jsfc="h:form">
+                    <form id="usersPcsCreateForm" jsfc="h:form">
                         <table>
                             <tr>
-                                <td>#{msgs.role_name}</td>
-                                <td>:<input jsfc="h:inputText" id="role_name"
-                                            size="30" maxlength="50"
-                                            value="#{roles.roles.roleName}"/>
+                                <td>#{msgs.user_name}</td>
+                                <td>:
+                                    <h:column>
+                                        #{usersPccs.usersPccs.users.userName}
+                                    </h:column>
                                 </td>
                             </tr>
                             <tr>
-                                <td>#{msgs.role_desc}</td>
-                                <td>:<input jsfc="h:inputText" id="role_desc"
-                                            size="50" maxlength="100"
-                                            value="#{roles.roles.roleDesc}"/>
+                                <td>#{msgs.user_pcc}</td>
+                                <td>:<h:selectOneMenu id="pccsSelect"
+                                                      value="#{usersPccs.usersPccs.pccs.pccsPcc}"
+                                                      style="width:25em;">
+                                        <f:selectItems value="#{usersPccs.pccList}" />
+                                    </h:selectOneMenu>
                                 </td>
                             </tr>
                             <tr>
-                                <td>#{msgs.role_menu}</td>
-                                <td>:<input jsfc="h:inputText" id="role_menu"
-                                            size="30" maxlength="50"
-                                            value="#{roles.roles.roleMenu}"/>
+                                <td>#{msgs.user_son}</td>
+                                <td>:<input jsfc="h:inputText" id="userSon"
+                                            size="15" maxlength="10"
+                                            value="#{usersPccs.usersPccs.userPccSon}"/>
                                 </td>
                             </tr>
                             <tr>
@@ -51,13 +52,14 @@
                                 <td><input id="submit" jsfc="h:commandButton"
                                            type="submit" value="#{msgs.create}"
                                            class="submit_btn"
-                                           action="#{roles.saveCreate}" />
+                                           action="#{usersPccs.saveCreate}" />
                                 </td>
                             </tr>
                         </table>
                     </form>
                     <h:messages globalOnly="true" style="color:red;"/>
                 </p>
+
             </ui:define>
         </ui:composition>
     </body>

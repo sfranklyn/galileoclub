@@ -32,7 +32,7 @@ public class Authorization implements Filter {
 
     private static final Logger log = Logger.getLogger(Authorization.class.getName());
     @EJB
-    private UsersDaoRemote usersDaoRemote = null;
+    private UsersDaoRemote usersDaoRemote;
 
     public Authorization() {
         super();

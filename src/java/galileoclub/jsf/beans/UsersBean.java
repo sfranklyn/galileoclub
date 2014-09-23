@@ -9,12 +9,7 @@ package galileoclub.jsf.beans;
 import galileoclub.ejb.dao.PccsDaoRemote;
 import galileoclub.ejb.dao.PointsDaoRemote;
 import galileoclub.ejb.dao.UsersDaoRemote;
-import galileoclub.ejb.datamodel.ClaimsDataModelBean;
-import galileoclub.ejb.datamodel.ClaimsDataModelRemote;
-import galileoclub.ejb.datamodel.PnrcountsDataModelBean;
-import galileoclub.ejb.datamodel.PnrcountsDataModelRemote;
-import galileoclub.ejb.datamodel.UsersDataModelBean;
-import galileoclub.ejb.datamodel.UsersDataModelRemote;
+import galileoclub.ejb.datamodel.*;
 import galileoclub.ejb.service.ClaimsServiceRemote;
 import galileoclub.ejb.service.UsersServiceRemote;
 import galileoclub.jpa.Claims;
@@ -22,11 +17,7 @@ import galileoclub.jpa.Pccs;
 import galileoclub.jpa.Points;
 import galileoclub.jpa.Users;
 import galileoclub.jsf.model.DatabaseDataModel;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -73,19 +64,19 @@ public class UsersBean {
     private Integer userPointValueInto = null;
     private Boolean pointClaimHistoryAscending = null;
     @EJB
-    private PccsDaoRemote pccsDaoRemote = null;
+    private PccsDaoRemote pccsDaoRemote;
     @EJB
-    private UsersDaoRemote usersDaoRemote = null;
+    private UsersDaoRemote usersDaoRemote;
     @EJB
-    private UsersServiceRemote usersServiceRemote = null;
+    private UsersServiceRemote usersServiceRemote;
     @EJB
-    private PointsDaoRemote pointsDaoRemote = null;
+    private PointsDaoRemote pointsDaoRemote;
     @EJB
-    private ClaimsServiceRemote claimsServiceRemote = null;
+    private ClaimsServiceRemote claimsServiceRemote;
     @EJB
-    private ClaimsDataModelRemote claimsDataModelRemote = null;
+    private ClaimsDataModelRemote claimsDataModelRemote;
     @EJB
-    private PnrcountsDataModelRemote pnrcountsDataModelRemote = null;
+    private PnrcountsDataModelRemote pnrcountsDataModelRemote;
 
     public DatabaseDataModel getDataModel() {
         return dataModel;

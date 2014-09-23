@@ -24,56 +24,56 @@
             <b>#{points.users.fullName}</b><br/>
             #{points.users.userAgentName}<br/>
         </p>
-    <rich:dataTable id="dataTable"
-                    value="#{points.dataModelPointClaim}"
-                    var="point"
-                    >
-        <h:column id="date">
-            <f:facet name="header">
-                #{msgs.date}
-            </f:facet>
-            #{point.dateFmt}
-        </h:column>
-        <h:column id="desc">
-            <f:facet name="header">
-                #{msgs.desc}
-            </f:facet>
-            #{point.desc}
-        </h:column>
-        <h:column id="response">
-            <f:facet name="header">
-                #{msgs.response}
-            </f:facet>
-            #{point.response}
-        </h:column>
-        <h:column id="count">
-            <f:facet name="header">
-                #{msgs.point}
-            </f:facet>
-            #{point.count}
-        </h:column>
-        <h:column id="pointValue">
-            <f:facet name="header">
-                #{msgs.point_value}
-            </f:facet>
-            #{point.points.pointValue}
-        </h:column>
-        <h:column id="status">
-            <f:facet name="header">
-                #{msgs.status}
-            </f:facet>
-            #{point.status}
-        </h:column>
-    </rich:dataTable>
-    <hr/>
-    #{msgs.total_point}: #{points.pointCount}
-    <hr/>
-    <pre>
-        #{points.response}
-    </pre>
-    <hr/>
-    <p>#{msgs.approval_signature}</p><br/><br/><br/><br/>
-    <p>#{msgs.approval_name}</p><br/><br/>
-    <p>#{msgs.date}</p><br/><br/>
-</body>
+        <rich:dataTable id="dataTable"
+                        value="#{points.dataModelPointClaim}"
+                        var="point"
+                        >
+            <h:column id="date">
+                <f:facet name="header">
+                    #{msgs.date}
+                </f:facet>
+                #{point.dateFmt}
+            </h:column>
+            <h:column id="desc">
+                <f:facet name="header">
+                    #{msgs.desc}
+                </f:facet>
+                #{point.desc}
+            </h:column>
+            <h:column id="response">
+                <f:facet name="header">
+                    #{msgs.response}
+                </f:facet>
+                #{point.response}
+            </h:column>
+            <h:column id="count">
+                <f:facet name="header">
+                    #{msgs.point}
+                </f:facet>
+                #{point.count}
+            </h:column>
+            <h:column id="pointValue">
+                <f:facet name="header">
+                    #{msgs.point_value}
+                </f:facet>
+                #{point.points.pointValue}
+            </h:column>
+            <h:column id="status">
+                <f:facet name="header">
+                    #{msgs.status}
+                </f:facet>
+                #{point.status}
+            </h:column>
+        </rich:dataTable>
+        <hr/>
+        #{msgs.total_point}: #{points.pointCount}
+        <hr/>
+        <pre>
+            #{points.response}
+        </pre>
+        <hr/>
+        <p>#{msgs.approval_signature}</p><br/><br/><br/><br/>
+        <p>#{msgs.approval_name}</p><br/><br/>
+        <p>#{msgs.date}</p><br/><br/>
+    </body>
 </html>

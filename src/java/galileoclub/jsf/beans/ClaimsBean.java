@@ -45,10 +45,11 @@ public class ClaimsBean {
     private Claims claims;
     private Long pointCount = null;
     @EJB
-    private PointsDaoRemote pointsDaoRemote = null;
-    private ClaimsDataModelRemote claimsDataModelRemote = null;
+    private PointsDaoRemote pointsDaoRemote;
     @EJB
-    private ClaimsServiceRemote claimsServiceRemote = null;
+    private ClaimsDataModelRemote claimsDataModelRemote;
+    @EJB
+    private ClaimsServiceRemote claimsServiceRemote;
 
     public String read() {
         users = (Users) usersBean.getDataModel().getRowData();

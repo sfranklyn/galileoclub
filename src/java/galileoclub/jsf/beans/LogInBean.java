@@ -14,11 +14,11 @@ import galileoclub.jpa.Users;
 import java.io.IOException;
 import java.util.List;
 import java.util.PropertyResourceBundle;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import java.util.logging.Level;
-import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
@@ -36,13 +36,13 @@ public class LogInBean {
     private VisitBean visit = null;
     private PropertyResourceBundle messageSource;
     @EJB
-    private UsersDaoRemote usersDaoRemote = null;
+    private UsersDaoRemote usersDaoRemote;
     @EJB
-    private RolesDaoRemote rolesDaoRemote = null;
+    private RolesDaoRemote rolesDaoRemote;
     @EJB
-    private UsersServiceRemote usersServiceRemote = null;
+    private UsersServiceRemote usersServiceRemote;
     @EJB
-    private PointsDaoRemote pointsDaoRemote = null;
+    private PointsDaoRemote pointsDaoRemote;
 
     public String getUserName() {
         return userName;

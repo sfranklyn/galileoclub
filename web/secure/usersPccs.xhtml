@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Galileo Club" />
+        <meta name="keywords" content="galileo,indonesia,club" />
+        <meta name="author" content="Samuel Franklyn" />
+        <link rel="stylesheet" type="text/css" href="../default.css" media="screen"/>
+        <title>Galileo Club</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="title">
+                    <h1>Galileo Club</h1>
+                </div>
+                <div class="navigation">
+                    <a href="index.xhtml">Home</a>
+                    <a href="secure/index.xhtml">Log In</a>
+                    <div class="clearer"><span></span></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <ui:composition template="/template.xhtml">
+                        <ui:define name="body">
+                            #{usersPccs.users.userName}/#{usersPccs.users.userPcc}/#{usersPccs.users.userSon}<br/>
+                            #{usersPccs.users.userCode} (#{usersPccs.users.userEmail})<br/>
+                            #{usersPccs.users.fullName}<br/>
+                            #{usersPccs.users.userAgentName}<br/>
+                            #{usersPccs.users.userOfficeAddress1}<br/>
+                            #{usersPccs.users.userOfficeCity} #{usersPccs.users.userOfficeZip}<br/>
+                            #{usersPccs.users.userOfficePhone}<br/>
+                            <form id="usersPccsForm" jsfc="h:form">
+                                <h:commandLink id="users"
+                                               action="redirect:secure/users" value="#{msgs.users_maintenance}"/>&#160;&#160;&#160;
+                                <h:commandLink id="createUserPcc"
+                                               action="#{usersPccs.create}"
+                                               value="#{msgs.create} #{msgs.user_pcc}"/><br/>
+                                <br/>
+                                <rich:dataTable id="data_table"
+                                                value="#{usersPccs.dataModel}"
+                                                var="userPcc"
+                                                styleClass="dataTable"
+                                                headerClass="dataTableHeader"
+                                                columnClasses="dataTableColumn"
+                                                >
+                                    <h:column id="idx">
+                                        <f:facet name="header">
+                                            No
+                                        </f:facet>
+                                        #{usersPccs.dataModel.rowIndex+1}
+                                    </h:column>
+                                    <h:column id="user_name">
+                                        <f:facet name="header">
+                                            #{msgs.user_name}
+                                        </f:facet>
+                                        #{userPcc.users.userName}
+                                    </h:column>
+                                    <h:column id="user_pcc">
+                                        <f:facet name="header">
+                                            #{msgs.user_pcc}
+                                        </f:facet>
+                                        #{userPcc.pccs.pccsPcc}
+                                    </h:column>
+                                    <h:column id="signon">
+                                        <f:facet name="header">
+                                            #{msgs.user_son}
+                                        </f:facet>
+                                        #{userPcc.userPccSon}
+                                    </h:column>
+                                    <h:column id="action">
+                                        <f:facet name="header">
+                                            #{msgs.action}
+                                        </f:facet>
+                                        <h:commandLink id="usersPccsDeleteLink"
+                                                       action="#{usersPccs.delete}"
+                                                       value="#{msgs.delete}"/><br/>
+                                    </h:column>
+                                </rich:dataTable>
+                            </form><br/><br/>
+                        </ui:define>
+                    </ui:composition>
+                </div>
+                <div class="clearer"><span></span></div>
+            </div>
+        </div>
+        <div class="footer">&#169; 2007 <a href="http://jroller.com/sfranklyn">Samuel Franklyn</a>.
+            Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &#38;
+            <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.
+            <a href="http://templates.arcsin.se">Website template</a> by <a href="http://arcsin.se">Arcsin</a>
+        </div>
+    </body>
+</html>

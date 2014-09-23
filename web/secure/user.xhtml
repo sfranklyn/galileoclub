@@ -15,28 +15,28 @@
         <title>Galileo Club</title>
     </head>
     <body>
-    <ui:composition>
-        <ul>
-            <li><h:commandLink id="editProfile"
-                               action="#{users.editProfile}"
-                               value="#{msgs.edit_profile}"/>
-            </li>
-            <li><h:commandLink id="pointClaimHistory"
-                               action="#{users.pointClaimHistory}"
-                               value="#{msgs.point_claim_history}"/>
-            </li>
-            <li>h:commandLink id="claimReward"
-                action="#{users.claimReward}"
-                value="#{msgs.claim_reward}"/>
-            </li>
-            <li><h:commandLink id="claimReconfirm"
-                               action="#{users.claimReconfirm}"
-                               value="#{msgs.claim_reconfirm}"/>
-            </li>
-            <li><h:commandLink action="#{users.changePassword}"
-                               value="#{msgs.change_password}"/>
-            </li>
-        </ul>
-    </ui:composition>
-</body>
+        <ui:composition>
+            <ul>
+                <li><h:commandLink id="editProfile"
+                                   action="#{users.editProfile}"
+                                   value="#{msgs.edit_profile}"/>
+                </li>
+                <li><h:commandLink id="pointClaimHistory"
+                                   action="#{users.pointClaimHistory}"
+                                   value="#{msgs.point_claim_history}"/>
+                </li>
+                <li><h:commandLink id="claimReward"
+                                   action="#{users.claimReward}"
+                                   value="#{msgs.claim_reward}"/>
+                </li>
+                <li><h:commandLink id="claimReconfirm"
+                                   action="#{users.claimReconfirm}"
+                                   value="#{msgs.claim_reconfirm}"/>
+                </li>
+                <li><h:commandLink action="#{users.changePassword}"
+                                   value="#{msgs.change_password}"/>
+                </li>
+            </ul>
+        </ui:composition>
+    </body>
 </html>

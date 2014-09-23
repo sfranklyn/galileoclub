@@ -7,9 +7,9 @@
 package galileoclub.jsf.beans;
 
 import galileoclub.ejb.dao.RolesDaoRemote;
+import galileoclub.ejb.dao.UrlsRolesDaoRemote;
 import galileoclub.ejb.datamodel.RolesDataModelBean;
 import galileoclub.ejb.datamodel.RolesDataModelRemote;
-import galileoclub.ejb.dao.UrlsRolesDaoRemote;
 import galileoclub.ejb.datamodel.UrlsRolesDataModelBean;
 import galileoclub.ejb.datamodel.UrlsRolesDataModelRemote;
 import galileoclub.ejb.service.UrlsRolesServiceRemote;
@@ -39,15 +39,16 @@ public class UrlsRolesBean {
     private UrlsRoles urlsRoles = null;
     private PropertyResourceBundle messageSource = null;
     private VisitBean visit = null;
-    private UrlsRolesDataModelRemote urlsRolesDataModelRemote = null;
     @EJB
-    private RolesDaoRemote rolesDaoRemote = null;
+    private UrlsRolesDataModelRemote urlsRolesDataModelRemote;
     @EJB
-    private UrlsRolesDaoRemote urlsRolesDaoRemote = null;
+    private RolesDaoRemote rolesDaoRemote;
     @EJB
-    private RolesDataModelRemote rolesDataModelRemote = null;
+    private UrlsRolesDaoRemote urlsRolesDaoRemote;
     @EJB
-    private UrlsRolesServiceRemote urlsRolesServiceRemote = null;
+    private RolesDataModelRemote rolesDataModelRemote;
+    @EJB
+    private UrlsRolesServiceRemote urlsRolesServiceRemote;
 
     public Integer getNoOfRows() {
         return noOfRows;
@@ -132,8 +133,7 @@ public class UrlsRolesBean {
 
     public List<SelectItem> getRoleNameList() {
         List<SelectItem> roleNameList = new ArrayList<SelectItem>();
-        List rolesList = new ArrayList();
-        rolesList = rolesDataModelRemote.getAll(RolesDataModelBean.SELECT_ALL, null, 0, Short.MAX_VALUE);
+        List rolesList = rolesDataModelRemote.getAll(RolesDataModelBean.SELECT_ALL, null, 0, Short.MAX_VALUE);
         for (int idx = 0; idx < rolesList.size(); idx++) {
             Roles roles = (Roles) rolesList.get(idx);
             SelectItem selectItem = new SelectItem(roles.getRoleName());

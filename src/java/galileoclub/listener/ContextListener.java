@@ -30,13 +30,13 @@ public class ContextListener implements ServletContextListener {
 
     private static final Logger log = Logger.getLogger(ContextListener.class.getName());
     @EJB
-    private ConfigsServiceRemote configsServiceRemote = null;
+    private ConfigsServiceRemote configsServiceRemote;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         try {
             ServletContext sc = sce.getServletContext();
-            log.info("GCLUB0001: Context initialized " + sc.getContextPath());
+            log.log(Level.INFO, "GCLUB0001: Context initialized {0}", sc.getContextPath());
             Configs configs = configsServiceRemote.getByKey(ConfigsServiceBean.SEGCOUNT_SIGNON_PASSWORD);
             if (configs == null) {
                 configs = new Configs();
@@ -67,7 +67,7 @@ public class ContextListener implements ServletContextListener {
                  */
             } else {
                 StdSchedulerFactory ssf = (StdSchedulerFactory) sc.getAttribute(QuartzInitializerListener.QUARTZ_FACTORY_KEY);
-                log.info("StdSchedulerFactory:" + ssf.toString());
+                log.log(Level.INFO, "StdSchedulerFactory:{0}", ssf.toString());
                 Scheduler scheduler = ssf.getScheduler();
                 scheduler.standby();
                 JobDetail jobDetail = new JobDetail("CountSegmentJob", Scheduler.DEFAULT_GROUP, CountSegmentJob.class);
@@ -102,6 +102,6 @@ public class ContextListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        log.info("GCLUB0001: Context destroyed " + sce.getServletContext().getContextPath());
+        log.log(Level.INFO, "GCLUB0001: Context destroyed {0}", sce.getServletContext().getContextPath());
     }
 }
